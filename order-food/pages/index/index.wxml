@@ -1,0 +1,33 @@
+<import src="../template/template" />
+<view class="container">
+  <!--顶部搜索栏-->
+  <view class="search">
+    <!--当前位置-->
+    <view bindtap="chooseLocation" class="search-site triangle">{{ userSite }}</view>
+    <view bindtap="goSearch" class="search-in iconfont icon-sousuo_sousuo">搜索餐厅、 菜系、 商圈</view>
+  </view>
+
+  <!--banner-->
+   <template is="carousel" data="{{ imgUrls }}"></template>
+ 
+  <!--公告声明-->
+  <view class='notice'>
+    <view>
+      <navigator wx:for="{{ notice}}">
+        <image src='{{ item.imgUrl}}'></image>
+        <text>{{ item.notice}}</text>
+      </navigator>
+    </view>
+  </view>
+
+  <view class='logo'>
+    <view class='big-logo'>
+      <block wx:for-items="{{navList}}">
+        <view bindtap='toOperate' class="logoinfo">
+          <image class='logo-image' src='{{item.navIcon}}'  id='{{item.type}}' mode='aspctFit' />
+          <text class='logotext'>{{item.navTitle}}</text>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

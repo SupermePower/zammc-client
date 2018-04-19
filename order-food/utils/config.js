@@ -1,0 +1,33 @@
+
+var host = 'http://localhost:8080';
+
+module.exports = {
+    FinduserUrl: `${host}/request/Design2.0/userfind.js`, 
+    RegedituserUrl: `${host}/request/Design2.0/regedituser.js`, 
+    ReaduserUrl: `${host}/request/Design2.0/readuser.js`,
+    ReadidUrl: `${host}/request/Design2.0/idfind.js`,
+    AddfulluserUrl: `${host}/request/Design2.0/adduserfull.js`,
+    DeleteidUrl: `${host}/request/Design2.0/delete_user.js`,
+    ModifyuserUrl: `${host}/request/Design2.0/modifyuser.js`,
+    OrderfindUrl: `${host}/request/Design2.0/orderfind.js`,
+    Readcommodityurl: `${host}/request/Design2.0/readcommodity.js`, 
+    Joinshoopcaturl: `${host}/request/Design2.0/joininshoopingcat.js`,
+    Readshopcaturl: `${host}/request/Design2.0/readshopcat.js`, 
+    Deleteshopcatthingsurl: `${host}/request/Design2.0/deleteshopcatthings.js`, 
+    Joinuserorderurl: `${host}/request/Design2.0/joinuserorder.js`,   
+    Writeordernumberurl: `${host}/request/Design2.0/writeordernumber.js`, 
+    Readuserorderurl: `${host}/request/Design2.0/readuserorder.js`, 
+    Deleteordermanagementurl: `${host}/request/Design2.0/deleteordermanagement.js`, 
+    Addusercomplaintsurl: `${host}/request/Design2.0/addusercomplaints.js`, 
+    Readusercomplaintsurl: `${host}/request/Design2.0/readusercomplaints.js`, 
+    findusercomplaintsurl: `${host}/request/Design2.0/findusercomplaints.js`, 
+    Deleteusercomplaintsurl: `${host}/request/Design2.0/deleteusercomplaints.js`, 
+    Addusercommenturl: `${host}/request/Design2.0/addusercomment.js`, 
+    Readusercommenturl: `${host}/request/Design2.0/readusercomment.js`, 
+    Findusercommenturl: `${host}/request/Design2.0/findusercomment.js`, 
+    Deleteusercommenturl: `${host}/request/Design2.0/deleteusercomment.js`, 
+    Readusercommdityurl: `${host}/request/Design2.0/readusercommdity.js`, 
+    Findcommodityidurl: `${host}/request/Design2.0/findcommodityid.js`,
+    Deletecommodityurl: `${host}/request/Design2.0/deletecommodity.js`,
+    Addcommoditylisturl: `${host}/request/Design2.0/addcommoditylist.js`,
+}

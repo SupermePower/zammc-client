@@ -1,0 +1,50 @@
+<!--main-->
+<view>
+  <view class="container">
+    <view class="ar_coverpath">
+      <image src="{{ navbar[currentTab].image }}" class='machineImg' mode="aspectFill"></image>
+    </view>
+    <view class='form_group'>
+      <text decode="{{true}}">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</text>
+      <input type='text' name="name" placeholder-class='placeholder_style'></input>
+    </view>
+    <view class='form_group'>
+      <text>联系电话</text>
+      <input type='number' name="name" placeholder-class='placeholder_style'></input>
+    </view>
+    <view class='form_group'>
+      <text>用餐人数</text>
+      <input type='number' name="name" placeholder-class='placeholder_style'></input>
+    </view>
+     <view class='form_date'>
+          <text>服务时间</text>
+          <view class="ar_date_time">
+            <view class="ar_date">
+              <picker mode="date" placeholder="选择日期" value="{{date}}" start="{{startDate}}" end="{{endDate}}" bindchange="bindDateChange">
+                <view>
+                  {{currentDate}}
+                </view>
+              </picker>
+            </view>
+            <view class="ar_time">
+              <picker mode="time" placeholder="选择时间" value="{{time}}" start="01:00" end="24:00" bindchange="bindTimeChange">
+                <view>
+                  {{currentTime}}
+                </view>
+              </picker>
+            </view>
+          </view>
+      </view>
+    <view class='form_group'>
+      <text>留言信息</text>
+      <textarea class="input_msg"></textarea>
+    </view>
+    <view>
+      <button class="ar_book" bindtap="bindToastTap">确认预定</button>
+      <toast hidden="{{bookToastHidden}}" bindchange="hideToast">
+        预定成功
+      </toast>
+    </view>
+
+  </view>
+</view>

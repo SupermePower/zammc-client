@@ -1,0 +1,78 @@
+<!--orderdetail.wxml-->
+<view class="container">
+
+
+  <view class="title" style="align-items:center;background-color:#F8F8F8;width:750rpx;height:88rpx;display:flex">
+    <text style="color:#888;font-size:14px;margin-left:30rpx">订单详情</text>
+  </view>
+
+  <scroll-view class="goods-scroll" scroll-y="false">
+    <block wx:for="{{goods}}">
+      <!--左边按钮的点击特效 -->
+      <view data-item="{{item}}" wx:if="{{item.count&&item.count>0}}" data-index="{{index}}" class="goods-list-item" style="background-color:#fff;height:88rpx;width:750rpx;flex-direction:row;align-items:center;display:flex">
+
+        <text style="width:250rpx;font-size:15px;display:flex;margin-left:30rpx">{{item.name}}</text>
+
+
+        <text style="width:250rpx;font-size:15px;justify-content:center;display:flex;">{{item.count}}</text>
+
+
+        <text style="width:250rpx;font-size:15px;color:#fc3e39;justify-content:flex-end;display:flex;margin-right:30rpx">{{item.totalprice}}</text>
+
+
+      </view>
+
+      <!--分割线-->
+      <view class="line-bottom" wx:if="{{item.count&&item.count>0}}">
+        <view class="left-line-bottom" style="width:30rpx;background-color:white"></view>
+      </view>
+
+    </block>
+  </scroll-view>
+
+  <view class="parting-view"></view>
+
+  <view class="total-view">
+    <text style="width:300rpx;font-size:15px;display:flex;margin-left:30rpx">合计</text>
+    <text style="width:450rpx;font-size:15px;color:#fc3e39;justify-content:flex-end;display:flex;margin-right:30rpx">￥{{totalprice}}</text>
+  </view>
+
+  <!--分割线-->
+  <view class="line-bottom">
+    <view class="left-line-bottom" style="width:30rpx;background-color:white"></view>
+  </view>
+
+  <view class="pay-type-view" style="background-color:#fff;height:88rpx;width:750rpx;flex-direction:row;align-items:center;display:flex">
+    <text style="width:350rpx;font-size:15px;display:flex;margin-left:30rpx">支付方式</text>
+    <text style="width:400rpx;font-size:18px;justify-content:flex-end;display:flex;margin-right:30rpx;font-family: '宋体';font-weight: lighter;">微信支付</text>
+  </view>
+
+  <!--分割线-->
+  <view class="line-bottom">
+    <view class="left-line-bottom" style="width:30rpx;background-color:white"></view>
+  </view>
+
+
+  <view class="total-view">
+    <text style="width:300rpx;font-size:15px;display:flex;margin-left:30rpx">下单时间</text>
+    <text style="width:450rpx;font-size:15px;justify-content:flex-end;display:flex;margin-right:30rpx">2017-03-12 21:32:12</text>
+  </view>
+
+  <view class="parting-view"></view>
+
+  <view class="total-view">
+    <text style="width:300rpx;font-size:15px;display:flex;margin-left:30rpx">取餐码</text>
+    <text style="width:450rpx;font-size:15px;color:#fc3e39;justify-content:flex-end;display:flex;margin-right:30rpx">023</text>
+  </view>
+
+  <!--分割线-->
+  <view class="line-bottom">
+    <view class="left-line-bottom" style="width:30rpx;background-color:white"></view>
+  </view>
+
+  <view class="total-view">
+    <text style="width:300rpx;font-size:15px;display:flex;margin-left:30rpx">订单状态</text>
+    <text style="width:450rpx;font-size:15px;color:#fc3e39;justify-content:flex-end;display:flex;margin-right:30rpx">等待取餐</text>
+  </view>
+
+</view>

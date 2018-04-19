@@ -1,0 +1,187 @@
+/* pages/ShoppingCart/ShoppingCart.wxss */
+.toparea {
+  width: 95%;
+  height: 6vh;
+  margin: auto;
+  margin-top: 4vh;
+  border-radius: 15rpx;
+  background-color: #fff;
+}
+
+.nowuser {
+  border-left: 3px #ddd solid;
+  float: left;
+  height: 4vh;
+  margin: 1vh;
+  margin-left: 3vw;
+  font-size: 28rpx;
+  padding-left: 2vw;
+  line-height: 4vh;
+}
+ 
+.userpoint {
+  border-right: 3px #ddd solid;
+  float: right;
+  height: 4vh;
+  margin: 1vh;
+  margin-right: 3vw;
+  font-size: 28rpx;
+  padding-right: 2vw;
+  line-height: 4vh;
+} 
+.shopcataera {
+  background-color: #fff;
+  width: 95vw;
+  margin: auto;
+  margin-top: 1vh;
+  border-radius: 15rpx;
+  position: relative;
+  height: 15vh;
+}
+.shopcat_img {
+   border: 1px solid #d6d6d6;
+   width: 20vw;
+   height: 10vh;
+   margin: 2.5vh;
+   float: left;
+}
+.shopcat_COMMODITYNAME {
+  /* border: 1px solid saddlebrown; */
+  /* float: left; */
+  position:absolute;
+  margin-top:1vh;
+  margin-left: 28vw;
+  font-size: 35rpx;
+}
+.shopcat_COMMODITYINTRODUCE {
+      /* border: 1px solid saddlebrown; */
+  /* float: left; */
+    position:absolute;
+    margin-top: 6.5vh;
+    margin-left:28vw;
+    font-size: 20rpx;
+}
+.shopcat_COMMODITYPRICE {
+       /* border: 1px solid saddlebrown; */
+  /* float: left; */
+    position:absolute;
+    margin-top: 10.5vh;
+    margin-left: 28vw;
+    font-size: 28rpx;
+}
+.shopcat_delete {
+     border: 1px solid #aaa;
+  /* float: left; */
+    position:absolute;
+    margin-top: 10vh;
+    margin-left: 50vw;
+    width: 15vw;
+    height: 4vh;
+    line-height: 4vh;
+    font-size: 18rpx;
+}
+.shopcat_buybtn {
+    border: 1px solid #aaa;
+  /* float: left; */
+    position:absolute;
+    margin-top: 10vh;
+    margin-left: 70vw;
+    width: 20vw;
+    height: 4vh;
+    line-height: 4vh;
+    font-size: 18rpx;
+}
+.login_screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+}
+
+/*content*/
+
+.login_box {
+  width: 80vw;
+  overflow: hidden;
+  position: fixed;
+  top: 16vh;
+  left: 10vw;
+  z-index: 1001;
+  background: #f6f6f6;
+  margin: 10vh auto;
+  border-radius: 15rpx;
+}
+
+.login_title {
+  /* border: 1px saddlebrown solid; */
+  height: 8vh;
+  background-color: #f1f1f1;
+  line-height: 8vh;
+  font-size: 4vh;
+  color: black;
+  font-family: "楷体";
+  text-align: center;
+}
+
+.login_content {
+   /* border: 1px saddlebrown solid;  */
+
+}
+.firstarea {
+   /* border: 1px solid saddlebrown;  */
+  width: 60%;
+  margin: 2vh auto;
+  line-height: 4vh;
+  height:4vh;
+  padding-left: 2vw;
+  font-size: 28rpx;
+  margin-top: 3vh;
+  text-align: left;
+  border-bottom: 3px #ddd double;
+ 
+}
+.firstareatwo {
+    /* border: 1px solid saddlebrown;   */
+  width: 60%;
+  margin: 2vh auto;
+  line-height: 4vh;
+  height:8vh;
+  padding-left: 2vw;
+  font-size: 28rpx;
+  margin-top: 3vh;
+  margin-bottom: 2vh;
+  text-align: left;
+  text-indent: 1em;
+}
+.button1 {
+  width: 50%;
+  height: 10vh;
+  /* border: 1px #444 solid; */
+  float: left;
+  margin-top: 1vh;
+}
+.button2 {
+  width: 50%;
+  height: 10vh;
+  /* border: 1px #444 solid; */
+  float: right;
+  margin-top: 1vh;
+}
+.surebtn {
+  width: 60%;
+  font-size: 28rpx;
+  color:  #37c038;
+  /* margin-top: 1vh; */
+}
+.nobtn {
+  width: 60%;
+  font-size: 28rpx;
+    
+  /* margin-top: 1vh; */
+
+}

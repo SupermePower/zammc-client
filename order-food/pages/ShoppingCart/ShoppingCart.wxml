@@ -1,0 +1,56 @@
+<!--pages/ShoppingCart/ShoppingCart.wxml-->
+<view class='toparea'>
+  <view class='nowuser'>当前登录用户：{{nowuser}}</view>
+   <view class='userpoint'>购物车记录为：{{userpoint}}</view> 
+</view>
+<view class='shopcataera'  wx:for="{{shopcat}}">
+  <view class='shopcat'>
+    <!-- {{item.USERNAME}} {{item.COMMODITYID}} -->
+     <!-- <view class='shopcat_index'>序号： {{index}}</view>  -->
+    <image class='shopcat_img' src='{{item.COMMODITYIMG}}'></image>
+    <view class='shopcat_COMMODITYNAME'>{{item.COMMODITYNAME}}</view>
+    <view class='shopcat_COMMODITYINTRODUCE'>{{item.COMMODITYINTRODUCE}}</view>
+     <view class='shopcat_COMMODITYPRICE'>{{item.COMMODITYPRICE}}元</view>
+    </view>
+    <button class='shopcat_delete' bindtap='shopcat_delete' data-deletecommodityid='{{item.COMMODITYID}}'>删除</button>
+    <button class='shopcat_buybtn' bindtap='shopcat_buybtn' data-buycommodityid='{{item.COMMODITYID}}' data-name="{{item.COMMODITYNAME}}" data-troduce="{{item.COMMODITYINTRODUCE}}" data-prive="{{item.COMMODITYPRICE}}" data-img="{{item.COMMODITYIMG}}">立即购买</button>
+    <view class='nothings' style='display:{{nothings}};'>当前还没有订单！</view>
+  </view>
+  <view class="login_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}">
+</view>
+
+<view animation="{{animationData}}" class="login_box" wx:if="{{showModalStatus}}">
+
+  <view class="login_title">确认信息</view>
+  <view class="login_content">
+    <view class='firstarea'>用户名：{{user}}
+    </view>
+    <view class='firstarea'>地址：{{address}}
+    </view>
+    <view class='button1'>
+      <button class='nobtn' bindtap='cancelbtn'>修改地址</button>
+    </view>
+    <view class='button2'>
+      <button class='surebtn' bindtap='surebtn'>确定购买</button>
+    </view>
+  </view>
+</view>
+<view class="login_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showPayStatus}}">
+</view>
+
+<view animation="{{animationData}}" class="login_box" wx:if="{{showPayStatus}}">
+
+  <view class="login_title">付款界面</view>
+  <view class="login_content">
+     <view class='firstareatwo'>预留界面，个人用户申请的微信小程序没有付款功能！
+    </view>
+      <view class='firstarea'>详情请留意微信官方网站!
+    </view> 
+    <!-- <view class='button1'>
+      <button class='nobtn' bindtap='cancelbtn'>修改地址</button>
+    </view>   -->
+    <view class='button2'>
+      <button class='surebtn' bindtap='paysurebtn'>确定购买</button>
+    </view>
+  </view>
+</view>

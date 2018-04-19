@@ -1,0 +1,207 @@
+.container {
+  background: #fff;
+}
+
+.ar_coverpath {
+  width: 100%;
+  margin: 0rpx;
+  padding: 0rpx;
+  height: 175px;
+}
+
+.ar_coverpath image {
+  width: 100%;
+}
+
+.ar_picker {
+  width: 100%;
+  font-size: 30rpx;
+  color: #000;
+  background: #efeff4;
+  margin: 0;
+}
+
+.ar_picker .ar_picker_wrap {
+  width: 670rpx;
+  background: #fff url(../../images/arrow.png) no-repeat right center;
+  background-size: 25rpx 14rpx;
+  background-position: 650rpx;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  margin: 20rpx auto;
+}
+
+.ar_cont {
+  padding: 20rpx 60rpx;
+  font-size: 30rpx;
+  background: #fff;
+  margin-bottom: 40rpx;
+  line-height: 45rpx;
+  color: #666;
+}
+
+.ar_cont .ar_cont_h1 {
+  font-size: 32rpx;
+  font-weight: 600;
+  line-height: 64rpx;
+  color: #000;
+}
+
+.ar_date_time {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 30rpx 0rpx 60rpx;
+  font-size: 30rpx;
+  border: none;
+}
+
+.ar_date_time .ar_date, .ar_date_time .ar_time {
+  width: 47%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-size: 30rpx;
+  border: none;
+}
+
+.ar_date_time .ar_date image {
+  width: 34rpx;
+  height: 38rpx;
+}
+
+.ar_date_time .ar_time image {
+  width: 45rpx;
+  height: 38rpx;
+}
+
+.ar_date_time picker {
+  width: 220rpx;
+  border-radius: 8rpx;
+  padding: 0rpx 10rpx;
+  margin-left: 10rpx;
+  border: none;
+}
+
+.input_msg {
+  border: none;
+  border-radius: 8rpx;
+  padding: 0rpx 10rpx;
+  height: 190rpx;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ar_book {
+  background: #d24a58;
+  font-size: 32rpx;
+  color: #fff;
+  border-radius: 0rpx;
+  margin: 40rpx 0rpx 10rpx;
+}
+
+page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.navbar {
+  flex: none;
+  display: flex;
+  background: #fff;
+}
+
+.navbar .item {
+  position: relative;
+  flex: auto;
+  text-align: center;
+  line-height: 80rpx;
+}
+
+.navbar .item.active {
+  color: #fc0;
+}
+
+.navbar .item.active:after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4rpx;
+  background: #fc0;
+}
+
+.machineImg {
+  width: 100%;
+  height: 100%;
+}
+
+.notice text {
+  font-size: 12px;
+}
+
+.notice image {
+  width: 50rpx;
+  height: 50rpx;
+  padding: 8rpx;
+  vertical-align: middle;
+}
+
+.form_group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 18rpx;
+  line-height: 60rpx;
+  border: 1px solid #ddd;
+  border-bottom: 10 solid #ddd;
+}
+
+.form_date {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 18rpx;
+  line-height: 60rpx;
+  border: 1px solid #ddd;
+  border-bottom: 10 solid #ddd;
+  font-size: 14px;
+  height: 60px;
+}
+
+.placeholder_style {
+  font-family: '微软雅黑';
+  color: #adadad;
+  font-size: 14px;
+}
+
+.form_group text {
+  text-align: right;
+  width: 140rpx;
+  font-size: 14px;
+}
+
+.form_date text {
+  text-align: right;
+  width: 140rpx;
+  font-size: 14px;
+  line-height:60px;
+}
+
+.form_group input, .form_group picker {
+  width: 440rpx;
+  border: none;
+  border-radius: 8rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  padding: 0rpx 20rpx;
+}
+
+.form_group .sendmsg_input {
+  width: 290rpx;
+  margin-right: 14rpx;
+}

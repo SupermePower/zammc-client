@@ -10,6 +10,16 @@ Page({
    */
   data: {
     title: 'ordering',
+    notice: [{
+      imgUrl: '../../images/reduce.png',
+      notice: '满100减5，满200减15，满300减15'
+    }, {
+      imgUrl: '../../images/new.png',
+      notice: '新用户下单立减10元'
+    }, {
+      imgUrl: '../../images/msg.png',
+      notice: '凡劳动节当天到店均有好礼相送'
+    }],
     restaurant: {
       img: 'https://order-foods-img-1256105536.cos.ap-chengdu.myqcloud.com/金掌勺店面图.png',
       name: '金掌勺',
@@ -40,16 +50,6 @@ Page({
       }, {
         content: '三个字',
         number: '9132'
-      }],
-      notice: [{
-        imgUrl: '../../images/reduce.png',
-        notice: '满100减5，满200减15，满300减15'
-      }, {
-        imgUrl: '../../images/new.png',
-        notice: '新用户下单立减10元'
-      }, {
-        imgUrl: '../../images/msg.png',
-        notice: '凡劳动节当天到店均有好礼相送'
       }],
       menuList: [{
         title: '特色',

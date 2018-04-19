@@ -1,0 +1,111 @@
+.o-top {
+  height: 145rpx;
+  border-bottom: 1rpx solid #e5e5e5;
+  padding: 10rpx 10rpx 20rpx;
+  display: flex;
+  border-top: 10px solid #eee
+}
+.o-top .o-top-img {
+  width: 110rpx;
+  height: 110rpx;
+  margin-right: 70rpx;
+  vertical-align: middle;  
+  padding: 30rpx;
+}
+.o-top .o-top-name {
+  display: flex;
+  flex-direction: column;
+  font-size: 28rpx;
+  color: #333;
+}
+.o-top .o-top-name text {
+  margin-top: 18rpx;
+  font-size: 24rpx;
+  color: #999;
+}
+.o-top .o-top-name text::before {
+  content: '满';
+  color: #fff;
+  background-color: #f00;
+  padding: 2rpx 5rpx;
+  margin-right: 10rpx;
+}
+.o-top .o-top-number {
+  background-color: #f00;
+  color: #fff;
+  font-size: 24rpx;
+  height: 47rpx;
+  line-height: 47rpx;
+  padding: 5rpx 15rpx;
+  border-radius: 30rpx;
+  text-align: center;
+  transform: translate(200rpx, 80rpx);
+}
+.o-center {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-bottom: 1rpx solid #e5e5e5;
+}
+.o-center view {
+  text-align: center;
+  box-sizing: border-box;
+  width: 33.33%;
+  line-height: 54rpx;
+  font-size: 26rpx;
+}
+.o-center .active {
+  border-bottom: 6rpx solid #f00;
+  font-weight: 700;
+  text-shadow: 2rpx 2rpx 2rpx #eee;
+}
+
+.form_group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 18rpx;
+  line-height: 60rpx;
+  border: 1px solid #ddd;
+  border-bottom: 10 solid #ddd;
+  height: 50px;
+}
+
+.placeholder_style {
+  font-family: '微软雅黑';
+  color: #adadad;
+  font-size: 14px;
+  width: 230rpx;
+  margin: auto;
+}
+
+.form_group text input {
+  text-align: right;
+  width: 230rpx;
+  font-size: 14px;
+  height: 50px;
+  margin: auto;
+}
+
+.form-price {
+  border-bottom: 10px solid #EEE
+}
+
+.activity-price {
+  height: 50px;
+  border-bottom: 10px solid #EEE;
+  margin:auto;
+}
+
+
+.activity-price text {
+  top: 50%;
+}
+
+.ar_book {
+  background: #d24a58;
+  font-size: 32rpx;
+  color: #fff;
+  border-radius: 0rpx;
+  margin: 40rpx 0rpx 10rpx;
+}

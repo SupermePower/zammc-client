@@ -498,3 +498,10 @@
  white-space: nowrap;
  letter-spacing: 2px;
 }
+
+.swiper_item image {
+  width: 50rpx;  
+  height: 50rpx;  
+  padding: 8rpx;
+  vertical-align: middle;
+}

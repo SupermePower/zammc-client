@@ -1,0 +1,25 @@
+<!-- 可用组件：https://mp.weixin.qq.com/debug/wxadoc/dev/component/ -->
+<view class="ordering">
+  <!--付款顶部-->
+  <view class="o-top">
+    <image class="o-top-img" src="{{ restaurant.img }}"></image>
+    <text>
+      {{ restaurant.name }}
+    </text>
+  </view>
+  <view class='form-price'>
+    <view class='form_group'>
+      <text>消费总金额(元)</text>
+      <input type='text' name="name" placeholder='询问服务员后输入' ></input>
+    </view>
+  </view>
+  <view class='activity-price'>
+    <text>每满100.00元减5.00元</text>
+  </view>
+  <view>
+      <button class="ar_book" bindtap="bindToastTap">微信支付</button>
+      <toast hidden="{{bookToastHidden}}" bindchange="hideToast">
+        支付成功
+      </toast>
+    </view>
+</view>

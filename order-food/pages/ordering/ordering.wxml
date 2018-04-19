@@ -9,18 +9,16 @@
     </view>
     <!--<view class="o-top-number">立即排号</view>-->
   </view>
-  <!--中间导航-->
-  <swiper class="swiper_container" vertical="true" autoplay="true" circular="true" interval="2000">
+  <view>
+    <swiper class="swiper_container" vertical="true" autoplay="true" circular="true" interval="2000">
     <block wx:for="{{ notice}}">
       <navigator  open-type="navigate">
         <swiper-item>
-          <view class="swiper_item">{{ item.notice}}</view>
+          <view class="swiper_item"><image src='{{ item.imgUrl}}'></image>{{ item.notice}}</view>
         </swiper-item>
       </navigator>
     </block>
   </swiper>
-  <!--导航内容1-->
-  <view>
     <view class="menu1">
       <!--左侧导航选项-->
       <view class="menu0-left">

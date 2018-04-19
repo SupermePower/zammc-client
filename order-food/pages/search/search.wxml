@@ -22,21 +22,6 @@
   <!--商店结果展示-->
   <view class="near-shop">
     <view class="slide ">搜索结果</view>
-    <!--<view class="near-shop-wrap">-->
-      <!--<navigator url="../ordering/ordering?shopId={{ item.id }}" hover-class="none" class="near-shop-content" wx:for="{{ nearShop }}" wx:key="unique">-->
-        <!--<image class="near-shop-img" src="{{ item.img }}"></image>-->
-        <!--<view class="near-shop-detail">-->
-          <!--<veiw class="n-s-c-name">{{ item.name }}</veiw>-->
-          <!--<view class="n-s-c-price {{ item.grade }} iconfont icon-wuxing"> ￥{{ item.price }}/人</view>-->
-          <!--<view class="n-s-c-kind">{{ item.kind }}  {{ item.distance }}</view>-->
-          <!--<view class="n-s-c-status">-->
-            <!--<text class="n-s-c-s-left">排队</text>-->
-            <!--<text class="n-s-c-s-center">当前排队状况</text>-->
-            <!--<text class="n-s-c-s-right">{{ item.status }}</text>-->
-          <!--</view>-->
-        <!--</view>-->
-      <!--</navigator>-->
-    <!--</view>-->
     <template is="shopList" data="{{ nearShop }}"></template>
   </view>
 </view>

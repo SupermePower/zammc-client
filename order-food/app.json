@@ -12,6 +12,7 @@
     "pages/search/search",
     "pages/showShop/showShop",
     "pages/server/server",
+    "pages/pay/pay",
     "pages/order/order"
   ],
   "window": {
@@ -36,7 +37,7 @@
       },
       {
         "text": "付款",
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/pay/pay",
         "iconPath": "images/pay2.png",
         "selectedIconPath": "images/pay1.png"
       },

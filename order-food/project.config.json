@@ -10,7 +10,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "1.9.90",
 	"appid": "wx0153b3ce8f036ea7",
-	"projectname": "order-food",
+	"projectname": "zammc-client",
 	"isGameTourist": false,
 	"condition": {
 		"search": {

@@ -84,6 +84,7 @@ Page({
 
   toOperate: function toOperate(e) {
     var type = e.target.id;
+    console.log(type);
     if (type == '0') {//预约
       wx.navigateTo({
         url: '../server/server'
@@ -97,8 +98,8 @@ Page({
     }
 
     if (type == '2') {
-      wx.navigateTo({
-        url: '../search/search'
+      wx.switchTab({
+        url: '../pay/pay'
       });
     }
 

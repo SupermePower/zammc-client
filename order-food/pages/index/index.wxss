@@ -52,7 +52,7 @@
 }
 
 .logo {
-  border-bottom: 60rpx solid #eee;
+  border-bottom: 120rpx solid #eee;
 }
 
 .big-logo {

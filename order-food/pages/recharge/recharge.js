@@ -11,13 +11,25 @@ Page({
   data: {
     title: 'pay',
     bookToastHidden: true,
-    restaurant: {
-      img: 'https://order-foods-img-1256105536.cos.ap-chengdu.myqcloud.com/金掌勺店面图.png',
-      name: '金掌勺',
-      id: 'remaid'
-    }
+    package: [
+      { "packageId": 1, "packagePrice": 400.00, "sellPrice": 350.00 },
+      { "packageId": 2, "packagePrice": 500.00, "sellPrice": 400.00 },
+      { "packageId": 3, "packagePrice": 1000.00, "sellPrice": 800.00 }
+    ]
   },
 
+  /**
+ * 改变标签选择
+ * @param e
+ */
+  choosetip: function choosetip(e) {
+    var index = e.currentTarget.dataset.choose;
+    this.data.chooseArr[index] = !this.data.chooseArr[index];
+    this.setData({
+      chooseArr: this.data.chooseArr
+    });
+  },
+  
   /**
    * 生命周期函数--监听页面加载
    */
@@ -30,7 +42,7 @@ Page({
     this.setData({
       operation: params.operation
     });
-    operation = '付款';
+    operation = '充值';
     // 设置导航栏标题
     wx.setNavigationBarTitle({
       title: operation
@@ -51,7 +63,6 @@ Page({
    */
   onReady: function onReady() {
     // TODO: onReady
-    this.setNeedDistance();
   },
 
 

@@ -105,7 +105,7 @@ Page({
 
     if (type == '3') {
       wx.navigateTo({
-        url: '../search/search'
+        url: '../recharge/recharge'
       });
     }
 

@@ -53,10 +53,6 @@
           <text>优惠￥{{ item.delMoney }}</text>
           <text>实付<text class="act-money">￥{{ item.actMoney }}</text></text>
         </view>
-        <view class="show-btn">
-          <view data-restaurantid="{{ orderList.finish.restaurantId }}" data-kind="shop" bindtap="goGratuity">给店家打分</view>
-          <view data-waiterid="{{ orderList.finish.waiterId }}" data-kind="worker" bindtap="goGratuity">给服务员打赏</view>
-        </view>
       </view>
       <view class="cancel-pay" wx:for="{{ orderList.cancel }}">
         <view class="go-pay-top">

@@ -13,6 +13,7 @@
     "pages/showShop/showShop",
     "pages/server/server",
     "pages/pay/pay",
+    "pages/recharge/recharge",
     "pages/order/order"
   ],
   "window": {
@@ -26,7 +27,7 @@
   "tabBar": {
     "color": "#999999",
     "selectedColor": "#f00",
-    "borderStyle": "white",
+    "borderStyle": "#DDD",
     "backgroundColor": "#fff",
     "list": [
       {

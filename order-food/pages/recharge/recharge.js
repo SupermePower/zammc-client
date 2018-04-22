@@ -1,100 +1,56 @@
-'use strict';
-
-// 获取全局应用程序实例对象
-// const app = getApp()
-
-// 创建页面实例对象
+// pages/booking/booking.js
+const app = getApp();
+const util = require('../../utils/util.js');
 Page({
-  /**
-   * 页面的初始数据
-   */
   data: {
-    title: 'pay',
-    bookToastHidden: true,
-    package: [
-      { "packageId": 1, "packagePrice": 400.00, "sellPrice": 350.00 },
-      { "packageId": 2, "packagePrice": 500.00, "sellPrice": 400.00 },
-      { "packageId": 3, "packagePrice": 1000.00, "sellPrice": 800.00 }
-    ]
+    chosens: false,
+    options: false,
+    package: {
+      room: [{
+        id: "10001",
+        title: "400.00元",
+        title1:"售价300元",
+        chosen: false,
+      }, {
+        id: "10002",
+        title: "400.00元",
+        title1: "售价300元",
+        chosen: false,
+      }, {
+        id: "10003",
+        title: "400.00元",
+        title1: "售价300元",
+        chosen: false,
+      }]
+    },
+    userChosen: ''
   },
-
-  /**
- * 改变标签选择
- * @param e
- */
-  choosetip: function choosetip(e) {
-    var index = e.currentTarget.dataset.choose;
-    this.data.chooseArr[index] = !this.data.chooseArr[index];
-    this.setData({
-      chooseArr: this.data.chooseArr
-    });
+  choosePackage: function (res) {
+    var chosen = res.currentTarget.dataset.chosen;
+    var mark = res.currentTarget.dataset.mark;
+    if (!chosen) {
+      var rooms = this.data.regionDataRoom;
+      this.setData({
+        userChosen: mark,
+        regionDataRoom: rooms
+      });
+    };
   },
-  
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function onLoad() {
-    // TODO: onLoad
-    // 改变标题栏文字
-    // 由跳转链接设置标题
-    var operation = params.operation;
-    // 设置operation
-    this.setData({
-      operation: params.operation
-    });
-    operation = '充值';
-    // 设置导航栏标题
-    wx.setNavigationBarTitle({
-      title: operation
-    });
+  onLoad: function (options) {
   },
-  bindToastTap: function () {
-    this.setData({
-      bookToastHidden: false
-    })
+  onReady: function () {
+    // 页面渲染完成
   },
-  hideToast: function () {
-    this.setData({
-      bookToastHidden: true
-    })
+  onShow: function () {
+    // 页面显示
   },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function onReady() {
-    // TODO: onReady
+  onHide: function () {
+    // 页面隐藏
   },
-
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function onShow() {
-    // TODO: onShow
+  onUnload: function () {
+    // 页面关闭
   },
-
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function onHide() {
-    // TODO: onHide
+  getScanning: function () {
+    app.getScanning()
   },
-
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function onUnload() {
-    // TODO: onUnload
-  },
-
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function onPullDownRefresh() {
-    // TODO: onPullDownRefresh
-  }
-});
-//# sourceMappingURL=ordering.js.map
+})

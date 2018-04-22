@@ -1,19 +1,24 @@
-<!-- 可用组件：https://mp.weixin.qq.com/debug/wxadoc/dev/component/ -->
-<view>
-  <view class="change_middle_choose">
-    <view wx:for="{{ package}}" >
-      <view class="choose_classify" bindtap='chooseRechange' :class="{bgColor:item.checked}" >
-        <view id='{{item.packageId}}'>{{item.packagePrice}}元</view>
-        <view>售价{{item.sellPrice}}元</view>
+<!--pages/booking/booking.wxml-->
+<view class="container">
+  <view class="region">
+    <view class="region-module region-room">
+      <view class="region-title">
+        选择充值金额（元）
       </view>
-      <view class="clear"></view>
+      <view class="region-conston">
+        <block wx:for="{{package.room}}" wx:key="item.id">
+          <view data-chosen="{{item.chosen}}" data-mark="{{item.id}}" class="{{item.chosen ? 'barred' : ''}} {{userChosen == item.id ? 'chosen' : 'nochosen'}}" bindtap="choosePackage">
+            <text>{{item.title}}\n{{item.title1}}</text>
+          </view>
+        </block>
+      </view>
     </view>
-    <view class="clear"></view>
   </view>
-
-  <view class="menu2-comment">
-    <view bindtap="choosetip" data-choose="{{ index }}" class="menu2-comment-item {{ chooseArr[index] ?  'active' : '' }}" wx:for="{{ package}}" wx:key="unique">
-      {{ item.sellPrice }}
-    </view>
-  </view>
+</view>
+<view class='custom-amount'>
+  <text>自定义充值金额（元）</text>
+  <input type='number' placeholder='请输入充值面额'></input>
+</view>
+<view class='recharge-but'>
+  <view bindtap="getdesk">立即充值</view>
 </view>

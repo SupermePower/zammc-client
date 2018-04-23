@@ -87,7 +87,7 @@ Page({
     console.log(type);
     if (type == '0') {//预约
       wx.navigateTo({
-        url: '../server/server'
+        url: '../reserve/reserve'
       });
     }
 
@@ -117,7 +117,7 @@ Page({
 
     if (type == '5') {
       wx.navigateTo({
-        url: '../search/search'
+        url: '../restaurantDetail/restaurantDetail'
       });
     }
   },

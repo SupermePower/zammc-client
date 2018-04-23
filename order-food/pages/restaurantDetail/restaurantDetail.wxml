@@ -1,0 +1,12 @@
+<!--导航条-->
+<view class="navbar">
+  <text wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">{{item.machineName}}</text>
+</view>
+<!--main-->
+<view>
+  <view class="container">
+    <view class="ar_coverpath">
+      <image src="{{ navbar[currentTab].image }}" class='machineImg' mode="aspectFill"></image>
+    </view>
+  </view>
+</view>

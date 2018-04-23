@@ -17,7 +17,7 @@
 </view>
 <view class='custom-amount'>
   <text>自定义充值金额（元）</text>
-  <input type='number' placeholder='请输入充值面额'></input>
+  <input type='number' bindfocus='customRechargeAmount' placeholder='请输入充值面额'></input>
 </view>
 <view class='recharge-but'>
   <view bindtap="getdesk">立即充值</view>

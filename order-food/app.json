@@ -1,20 +1,17 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/businessCooperation/businessCooperation",
     "pages/ordering/ordering",
     "pages/payorder/payorder",
-    "pages/grade/grade",
-    "pages/gratuity/gratuity",
-    "pages/detail/detail",
     "pages/user/user",
     "pages/useroperation/useroperation",
     "pages/search/search",
     "pages/showShop/showShop",
-    "pages/server/server",
+    "pages/reserve/reserve",
     "pages/pay/pay",
     "pages/recharge/recharge",
-    "pages/order/order"
+    "pages/order/order",
+    "pages/restaurantDetail/restaurantDetail"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ed4d30",

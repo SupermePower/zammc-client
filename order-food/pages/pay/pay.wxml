@@ -16,10 +16,10 @@
   <view class='activity-price'>
     <text>每满100.00元减5.00元</text>
   </view>
-  <view>
-      <button class="ar_book" bindtap="bindToastTap">微信支付</button>
-      <toast hidden="{{bookToastHidden}}" bindchange="hideToast">
-        支付成功
-      </toast>
-    </view>
+  </view>
+<view>
+  <button class="ar_book" bindtap="bindToastTap">微信支付</button>
+  <toast hidden="{{bookToastHidden}}" bindchange="hideToast">
+    支付成功
+  </toast>
 </view>

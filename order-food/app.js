@@ -46,6 +46,10 @@ App({
     });
   },
 
+  globalData: {
+    appid: 'wx0153b3ce8f036ea7',//appid需自己提供，此处的appid我随机编写  
+    secret: '15bd07b532654e3b586203c754b1f558',//secret需自己提供，此处的secret我随机编写
+  },  
 
   /**
    * 生命周期函数--监听小程序初始化
@@ -53,6 +57,41 @@ App({
    */
   onLaunch: function onLaunch() {
     console.log(' ========== Application is launched ========== ');
+    var that = this
+    var user = wx.getStorageSync('user') || {};
+    var userInfo = wx.getStorageSync('userInfo') || {};
+    if ((!user.openid || (user.expires_in || Date.now()) < (Date.now() + 600)) && (!userInfo.nickName)) {
+      wx.login({
+        success: function (res) {
+          if (res.code) {
+            wx.getUserInfo({
+              success: function (res) {
+                var objz = {};
+                objz.avatarUrl = res.userInfo.avatarUrl;
+                objz.nickName = res.userInfo.nickName;
+                //console.log(objz);  
+                wx.setStorageSync('userInfo', objz);//存储userInfo  
+              }
+            });
+            var d = that.globalData;//这里存储了appid、secret、token串    
+            var l = 'https://api.weixin.qq.com/sns/jscode2session?appid=' + d.appid + '&secret=' + d.secret + '&js_code=' + res.code + '&grant_type=authorization_code';
+            wx.request({
+              url: l,
+              method: 'GET', 
+              success: function (res) {
+                var obj = {};
+                obj.openid = res.data.openid;
+                obj.expires_in = Date.now() + res.data.expires_in;
+                console.log(obj);  
+                wx.setStorageSync('user', obj);//存储openid
+              }
+            });
+          } else {
+            console.log('获取用户登录态失败！' + res.errMsg)
+          }
+        }
+      });
+    }
   },
 
   /**

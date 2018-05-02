@@ -106,6 +106,8 @@
   background: #d24a58;
   font-size: 32rpx;
   color: #fff;
-  border-radius: 0rpx;
-  margin: 40rpx 0rpx 10rpx;
+  border-radius: 15rpx;
+  margin: auto;
+  width: 90%;
+  border-top: 10px;
 }

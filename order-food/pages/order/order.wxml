@@ -10,15 +10,15 @@
     <view class="order-pend " hidden="{{ currentCouponTab != 0 }}">
       <view class="go-pay" wx:for="{{ orderList.pay }}">
         <view class="go-pay-top">
-          <image src="{{ item.img }}"></image>
+          <image src="{{ item.restaurantUrl }}"></image>
           <view class="g-p-t-center">
-            <text>{{ item.name }}</text>
-            <text>{{ item.code }}</text>
-            <text>{{ item.time }}</text>
+            <text>{{ item.restaurantName }}</text>
+            <text>{{ item.restaurantCode }}</text>
+            <text>{{ item.createTime }}</text>
           </view>
         </view>
         <view class="go-pay-bottom">
-          <text>￥{{ item.money }}</text>
+          <text>￥{{ item.actMoney }}</text>
           <view class="go-pay-btn" bindtap="goPay" data-id="{{ item.code }}">去支付</view>
         </view>
       </view>
@@ -28,9 +28,9 @@
         <view class="go-pay-top">
           <image src="{{ item.img }}"></image>
           <view class="g-p-t-center">
-            <text>{{ item.name }}</text>
-            <text>{{ item.code }}</text>
-            <text>{{ item.time }}</text>
+             <text>{{ item.restaurantName }}</text>
+            <text>{{ item.restaurantCode }}</text>
+            <text>{{ item.createTime }}</text>
           </view>
         </view>
         <view class="go-pay-bottom">
@@ -42,9 +42,9 @@
         <view class="go-pay-top">
           <image src="{{ item.img }}"></image>
           <view class="g-p-t-center">
-            <text>{{ item.name }}</text>
-            <text>{{ item.code }}</text>
-            <text>{{ item.time }}</text>
+             <text>{{ item.restaurantName }}</text>
+            <text>{{ item.restaurantCode }}</text>
+            <text>{{ item.createTime }}</text>
           </view>
           <view class="iconfont icon-bhjyizhifu"></view>
         </view>

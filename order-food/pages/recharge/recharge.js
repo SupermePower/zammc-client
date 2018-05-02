@@ -5,24 +5,6 @@ Page({
   data: {
     chosens: false,
     options: false,
-    package: {
-      room: [{
-        id: "10001",
-        title: "400.00元",
-        title1:"售价300元",
-        chosen: false,
-      }, {
-        id: "10002",
-        title: "400.00元",
-        title1: "售价300元",
-        chosen: false,
-      }, {
-        id: "10003",
-        title: "400.00元",
-        title1: "售价300元",
-        chosen: false,
-      }]
-    },
     userChosen: ''
   },
   choosePackage: function (res) {
@@ -44,7 +26,31 @@ Page({
     });
   },
 
-  onLoad: function (options) {
+  onLoad: function () {
+    var that = this;
+    wx.request({
+      url: 'http://localhost:8080/order-foods/recharge/queryRechargePackage',
+      header: {
+        "Content-Type": "application/json"
+      },
+      method: 'POST',
+      success: function(res) {
+        console.log(res.data.dealCode == 200);
+        if (res.data.dealCode == 200) {
+          that.setData({
+            rechargePackage:res.data.dealResult
+          });
+        }
+        console.log(res);
+      },
+      fail: function() {
+        wx.showToast({
+          title: '失败',
+          icon: 'fail',
+          duration: 1000
+        });
+      }
+    })
   },
   onReady: function () {
     // 页面渲染完成

@@ -6,9 +6,9 @@
         选择充值金额（元）
       </view>
       <view class="region-conston">
-        <block wx:for="{{package.room}}" wx:key="item.id">
-          <view data-chosen="{{item.chosen}}" data-mark="{{item.id}}" class="{{item.chosen ? 'barred' : ''}} {{userChosen == item.id ? 'chosen' : 'nochosen'}}" bindtap="choosePackage">
-            <text>{{item.title}}\n{{item.title1}}</text>
+        <block wx:for="{{rechargePackage}}" wx:key="item.packageId">
+          <view data-chosen="{{item.chosen}}" data-mark="{{item.packageId}}" class="{{item.chosen ? 'barred' : ''}} {{userChosen == item.packageId ? 'chosen' : 'nochosen'}}" bindtap="choosePackage">
+            <text>{{item.rechargeMoney}}元\n售价{{item.payMoney}}元</text>
           </view>
         </block>
       </view>

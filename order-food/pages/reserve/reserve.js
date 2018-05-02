@@ -19,6 +19,35 @@ Page({
       currentTab: e.currentTarget.dataset.idx
     })
   },
+  submitForm: function(e) {
+    var formData = e.detail.value;
+    console.log(formData);
+    wx.request({
+      url: 'http://localhost:8080/order-foods/reserve/userReserve',
+      method: 'POST',
+      data: formData,
+      header: { 'Content-Type': 'application/json' },
+      success: function(res) {
+        if (res.data.dealCode == 200) {
+          wx.navigateTo({
+            url: '../reserve/reserve'
+          });
+          wx.showToast({
+            title: '预约成功',
+            icon: 'success',
+            duration: 1000
+          });
+        } else {
+          console.log(res.data);
+          wx.showToast({
+            title: res.data.dealMsg,
+            icon: 'fail',
+            duration: 1000
+          });
+        }
+      }
+    })
+  },
   onLoad: function (options) {
     this.setData({
       artype: options.artype

@@ -13,33 +13,6 @@ Page({
     operation: '我的订单',
     currentCouponTab: 0,
     orderNumber: ['待支付', '全部'],
-    orderList: {
-      pay: [{
-        img: 'https://order-foods-img-1256105536.cos.ap-chengdu.myqcloud.com/金掌勺店面图.png',
-        name: '金掌勺',
-        code: 'No1110110',
-        time: '2017-03-26 17:26',
-        money: '238'
-      }],
-      finish: [{
-        img: 'https://order-foods-img-1256105536.cos.ap-chengdu.myqcloud.com/金掌勺店面图.png',
-        name: '金掌勺',
-        code: 'No12312312',
-        time: '2017-03-26 17:26',
-        money: '238',
-        delMoney: '23',
-        actMoney: '215',
-        restaurantId: 'No123123',
-        waiterId: 'waiter123123'
-      }],
-      cancel: [{
-        img: 'https://order-foods-img-1256105536.cos.ap-chengdu.myqcloud.com/金掌勺店面图.png',
-        name: '金掌勺',
-        code: 'No12312312',
-        time: '2017-03-26 17:26',
-        money: '238'
-      }]
-    },
     index: 0,
     showMessage: null
   },
@@ -87,13 +60,26 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function onLoad(params) {
+    var that = this;
     // 由跳转链接设置标题
     var operation = params.operation;
-    // 设置operation
-    this.setData({
-      operation: params.operation
-    });
     operation = '我的订单';
+    var userInfo = wx.getStorageSync('user') || {};
+    var userId = userInfo.openid;
+    wx.request({
+      url: 'http://localhost:8080/order-foods/order/queryUserOrder',
+      method: 'POST',
+      data : {
+        userId : userId
+      },
+      header: { 'Content-Type': 'application/json' },
+      success: function(res) {
+        // 设置operation
+        that.setData({
+          orderList: res.data.dealResult
+        });
+      }
+    })
     // 设置导航栏标题
     wx.setNavigationBarTitle({
       title: operation

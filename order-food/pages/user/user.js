@@ -45,6 +45,7 @@ Page({
     this.setData({
       userInfo: app.data.userInfo
     });
+    console.log(app.data.userInfo);
     // TODO: onLoad
   },
 

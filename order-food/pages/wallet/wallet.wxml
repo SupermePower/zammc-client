@@ -1,0 +1,13 @@
+<!-- 可用组件：https://mp.weixin.qq.com/debug/wxadoc/dev/component/ -->
+<view class="user">
+  <!--user-info-->
+  <view class="user-info">
+    <text class="user-name">钱包余额（元）</text>
+     <text class="user-name">{{amount}}</text>
+  </view>
+  <!--user-list-->
+  <view class="user-list">
+     <navigator hover-class="none" class="triangle iconfont icon-dingdan" bindtap='toRecharge' wx:key="unique">  余额充值</navigator>
+    <navigator hover-class="none" class="triangle iconfont icon-dingdan" bindtap='toAccountWater' wx:key="unique">  余额收支明细</navigator>
+  </view>
+</view>

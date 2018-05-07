@@ -11,7 +11,8 @@
     "pages/pay/pay",
     "pages/recharge/recharge",
     "pages/order/order",
-    "pages/restaurantDetail/restaurantDetail"
+    "pages/restaurantDetail/restaurantDetail",
+    "pages/wallet/wallet"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ed4d30",

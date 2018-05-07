@@ -15,7 +15,8 @@
   -->
   <!--user-list-->
   <view class="user-list">
-    <navigator url="../useroperation/useroperation?operation={{ item.id }}" hover-class="none" class="triangle {{ item.icon }}" wx:for="{{ userList }}" wx:key="unique">  {{ item.title }}</navigator>
+    <navigator hover-class="none" class="triangle iconfont icon-dingdan" bindtap='toWallet' wx:key="unique">  我的钱包</navigator>
+    <navigator hover-class="none" class="triangle iconfont icon-dingdan" bindtap='toCashCoupon' wx:key="unique">  代金券</navigator>
         <navigator hover-class="none" class="triangle iconfont icon-dingdan" bindtap='toOrder' wx:key="unique">  我的订单</navigator>
   </view>
 </view>

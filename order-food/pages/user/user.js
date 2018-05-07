@@ -20,18 +20,16 @@ Page({
     }, {
       title: '积分',
       number: 20
-    }],
-    userList: [{
-      icon: 'iconfont icon-xiaoxi',
-      title: '我的钱包',
-      id: 'number'
-    }, {
-      icon: 'iconfont icon-lingdang',
-      title: '代金券',
-      id: 'message'
     }]
   },
-
+  /**
+   * 跳转到 我的钱包
+   */
+  toWallet: function toWallet() {
+    wx.navigateTo({
+      url: '../wallet/wallet',
+    })
+  },
   /**
    * 跳转到订单页面
    */

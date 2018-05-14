@@ -1,0 +1,24 @@
+<!-- 可用组件：https://mp.weixin.qq.com/debug/wxadoc/dev/component/ -->
+
+<view class="menu1">
+  <!--商品选项-->
+  <view class="menu0-right">
+    <!--优惠卷-->
+    <view wx:if="{{ restaurant.coupon.id }}" class="shop-coupon posr">
+      <view class="circle-wrap posa">
+        <view class="circle" wx:for="0123456789"></view>
+      </view>
+      <view class="coupon">
+        <view class="coupon-left">
+          <text>{{ restaurant.coupon.delmoney }}元</text>
+          <text>满{{ restaurant.coupon.condition }}元使用</text>
+        </view>
+        <view class="coupon-right">
+          <view>{{ restaurant.name }}</view>
+          <view>{{ restaurant.coupon.time }}</view>
+        </view>
+        <view bindtap="getCoupon" class="get-coupon" data-couponid="{{ restaurant.coupon.id }}">点击领取</view>
+      </view>
+    </view>
+  </view>
+</view>

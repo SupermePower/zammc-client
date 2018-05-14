@@ -90,28 +90,28 @@ Page({
         url: '../reserve/reserve'
       });
     }
-
+    //点餐
     if (type == '1') {
       wx.navigateTo({
         url: '../ordering/ordering'
       });
     }
-
+    //收银台
     if (type == '2') {
       wx.switchTab({
         url: '../pay/pay'
       });
     }
-
+    //充值
     if (type == '3') {
       wx.navigateTo({
         url: '../recharge/recharge'
       });
     }
-
+    //优惠券
     if (type == '4') {
       wx.navigateTo({
-        url: '../search/search'
+        url: '../coupon/coupon'
       });
     }
 

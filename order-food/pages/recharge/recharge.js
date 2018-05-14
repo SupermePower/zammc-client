@@ -12,10 +12,8 @@ Page({
     var mark = res.currentTarget.dataset.mark;
     if (!chosen) {
       console.log("------------------" + chosen);
-      var rooms = this.data.regionDataRoom;
       this.setData({
-        userChosen: mark,
-        regionDataRoom: rooms
+        userChosen: mark
       });
     };
   },
@@ -24,6 +22,10 @@ Page({
     this.setData({
       userChosen: ""
     });
+  },
+
+  recharge: function recharge(e) {
+    console.log("------------------->" + this.data.rechargePackage);
   },
 
   onLoad: function () {

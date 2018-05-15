@@ -7,7 +7,7 @@
       </view>
       <view class="region-conston">
         <block wx:for="{{rechargePackage}}" wx:key="item.packageId">
-          <view data-chosen="{{item.chosen}}" data-mark="{{item.packageId}}" class="{{item.chosen ? 'barred' : ''}} {{userChosen == item.packageId ? 'chosen' : 'nochosen'}}" bindtap="choosePackage">
+          <view data-chosen="{{item.chosen}}" data-packageid="{{item.packageId}}" class="{{item.chosen ? 'barred' : ''}} {{userChosen == item.packageId ? 'chosen' : 'nochosen'}}" bindtap="choosePackage">
             <text>{{item.rechargeMoney}}元\n售价{{item.payMoney}}元</text>
           </view>
         </block>
@@ -17,7 +17,7 @@
 </view>
 <view class='custom-amount'>
   <text>自定义充值金额（元）</text>
-  <input type='number' id='customRechargeAmount' bindfocus='customRechargeAmount' placeholder='请输入充值面额'></input>
+  <input type='number' id='customRechargeAmount' value='{{customAcmount}}' bindinput='customRechargeAmount' placeholder='请输入充值面额'></input>
 </view>
 <view class='recharge-but'>
   <view bindtap="recharge">立即充值</view>

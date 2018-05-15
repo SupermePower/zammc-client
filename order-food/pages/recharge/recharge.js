@@ -5,27 +5,100 @@ Page({
   data: {
     chosens: false,
     options: false,
-    userChosen: ''
+    userChosen: '',
+    customAcmount:''
   },
   choosePackage: function (res) {
+    this.setData({
+      customAcmount: ""
+    });
     var chosen = res.currentTarget.dataset.chosen;
-    var mark = res.currentTarget.dataset.mark;
+    var packageid = res.currentTarget.dataset.packageid;
+    console.log(res.currentTarget.dataset);
     if (!chosen) {
-      console.log("------------------" + chosen);
       this.setData({
-        userChosen: mark
+        userChosen: packageid
       });
     };
   },
 
-  customRechargeAmount: function customRechargeAmount(res) {
+  customRechargeAmount: function customRechargeAmount(e) {
     this.setData({
       userChosen: ""
+    });
+    var amount = e.detail.value;
+    console.log(amount);
+    this.setData({
+      customAcmount:amount
     });
   },
 
   recharge: function recharge(e) {
-    console.log("------------------->" + this.data.rechargePackage);
+    var user = wx.getStorageSync('user') || {};
+    var userId = user.openid;
+    if (userId == '') {
+      wx.showToast({
+        title: '请先授权',
+        icon: 'fail',
+        duration: 1000
+      });
+      return;
+    } 
+    var rechargeData = {}
+    if (this.data.userChosen == '' && this.data.customAcmount == '') {
+      wx.showToast({
+        title: '请选择充值方式',
+        icon: 'fail',
+        duration: 1000
+      });
+      return;
+    }
+    if (this.data.userChosen != '' && this.data.customAcmount == '') {
+      rechargeData = {
+        userId: userId,
+        packageId: this.data.userChosen,
+        rechargeMoney: 0,
+        isPackage: 1
+      }
+    } else if (this.data.userChosen == '' && this.data.customAcmount != '') {
+      rechargeData = {
+        userId: userId,
+        packageId: "",
+        rechargeMoney: this.data.customAcmount,
+        isPackage: 0
+      }
+    }
+    wx.request({
+        url: 'http://localhost:8080/order-foods/recharge/recharge',
+        header: {
+          "Content-Type": "application/json"
+        },
+        method: 'POST',
+        data: rechargeData,
+        success: function (res) {
+          if (res.data.dealCode == 200) {
+            wx.requestPayment(
+              {
+                'timeStamp': '',
+                'nonceStr': '',
+                'package': '',
+                'signType': 'MD5',
+                'paySign': '',
+                'success': function (res) { },
+                'fail': function (res) { },
+                'complete': function (res) { }
+              })
+          }
+          console.log(res.data.dealResult);
+        },
+        fail: function () {
+          wx.showToast({
+            title: '失败',
+            icon: 'fail',
+            duration: 1000
+          });
+        }
+      })
   },
 
   onLoad: function () {

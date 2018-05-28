@@ -2,24 +2,47 @@
 <view class="ordering">
   <!--付款顶部-->
   <view class="o-top">
-    <image class="o-top-img" src="{{ restaurant.img }}"></image>
-    <text>
-      {{ restaurant.name }}
-    </text>
+<view class="o-top-mainLisy">
+    <view class='o-top-main displayFlex'>
+    <view class='o-top-main-left displayFlex'>
+        <image class="o-top-img" src="{{ restaurant.img }}"></image>
+        <view class='text'>{{ restaurant.name }}</view>
+    </view>
+   
+    <view class='o-top-main-right'>
+        <image class="main-right-img" src="../../images/fkm.png"></image>
+        <view class='textcode'>收款码</view>
+    </view>
+     </view>
   </view>
+</view>
+
   <view class='form-price'>
-    <view class='form_group'>
+    <view class='form_group displayFlex'>
       <text>消费总金额(元)</text>
       <input type='text' name="name" placeholder='询问服务员后输入' ></input>
     </view>
+    <view class="tishi"><image class="" src="../../images/douding.jpg"></image>输入不参与优惠金额</view>
   </view>
   <view class='activity-price'>
     <text>每满100.00元减5.00元</text>
   </view>
   </view>
 <view>
-  <button class="ar_book" bindtap="bindToastTap">微信支付</button>
-  <toast hidden="{{bookToastHidden}}" bindchange="hideToast">
-    支付成功
-  </toast>
+  <button class="ar_book" bindtap="bindToastTap">立即支付</button>
+  <toast hidden="{{bookToastHidden}}" bindchange="hideToast">支付成功</toast>
+  <view class='ar_select displayFlex'>
+      <view class='ar_select_li'>
+         <view><image src='../../images/kuaijie.jpg'></image></view>
+         <text>快捷支付</text>
+      </view>
+      <view class='ar_select_li'>
+         <view><image src='../../images/anquan.jpg'></image></view>
+         <text>安全交易</text>
+      </view>
+      <view class='ar_select_li'>
+        <view><image src='../../images/youhui.jpg'></image></view>
+         <text>尽享优惠</text>
+      </view>
+  </view>
 </view>

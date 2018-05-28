@@ -63,11 +63,15 @@
   flex: 1;
 }
 .menu1 .menu0-right .shop-coupon {
+  width: 677rpx;
   height: 142rpx;
-  background-color: #f6f6f6;
+  background-color: #f0f0f0;
   box-sizing: border-box;
   border-bottom: 1rpx solid #e5e5e5;
   padding: 22rpx 69rpx 23rpx 55rpx;
+  margin: 0 auto;
+  border-radius: 4rpx;
+  margin-top: 20rpx;
 }
 .menu1 .menu0-right .shop-coupon .circle-wrap {
   transform: translate(-5rpx, -2rpx);
@@ -464,3 +468,94 @@
   padding: 8rpx;
   vertical-align: middle;
 }
+
+
+
+
+.displayFlex{
+  display: flex;
+  flex-wrap:wrap;
+}
+.youhui{
+  width: 90%;
+  margin: 0 auto;
+}
+.youhui_main{
+  width: 100%;
+  height: 208rpx;
+  background: #cecbcb;
+  border-radius:4rpx;
+  margin-top: 20rpx;
+  position: relative;
+}
+.youhui_main_left{
+  width: 25%;
+  height: 168rpx;
+  border-right: dashed 1rpx #fff; 
+  text-align: center;
+  padding-top: 40rpx;
+}
+.youhui_main_left view{
+    width: 100%;
+    font-size: 30rpx;
+    color: #fff;
+    margin-bottom: 10rpx;
+}
+.youhui_main_left view text{
+   font-size: 50rpx;
+}
+.youhui_main_right{
+  width: 70%;
+  height: 168rpx;
+  padding-left: 20rpx;
+}
+.youhui_main_right view{
+  line-height: 60rpx;
+  font-size: 32rpx;
+  color: #fff;
+  margin-bottom:88rpx;
+  }
+  .youhui_main_right view+view{
+     line-height: 60rpx;
+    font-size: 26rpx;
+    color: #fff;
+  }
+  .dingwei{
+    width:33rpx;
+    height:207rpx;
+    position:absolute;
+    top:0;
+    left:154rpx;
+  }
+  .topdian{
+   width:33rpx;
+  height:33rpx;
+  position:absolute;
+  top:-16rpx;
+  left:0;
+  background:#fff;
+  border-radius:50%;
+  }
+  .baidian{
+   width:33rpx;
+  height:33rpx;
+  position:absolute;
+  bottom:-16rpx;
+  left:0;
+  background:#fff;
+  border-radius:50%;
+  }
+  .piclogin{
+    width:150rpx;
+    height:150rpx;
+    /* background:red; */
+    position:absolute;
+    top:10rpx;
+    right:22rpx;
+    /* border-radius: 50%; */
+  }
+ .piclogin image{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }

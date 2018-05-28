@@ -4,7 +4,7 @@
   <!--商品选项-->
   <view class="menu0-right">
     <!--优惠卷-->
-    <view wx:if="{{ restaurant.coupon.id }}" class="shop-coupon posr">
+    <!-- <view wx:if="{{ restaurant.coupon.id }}" class="shop-coupon posr">
       <view class="circle-wrap posa">
         <view class="circle" wx:for="0123456789"></view>
       </view>
@@ -19,6 +19,26 @@
         </view>
         <view bindtap="getCoupon" class="get-coupon" data-couponid="{{ restaurant.coupon.id }}">点击领取</view>
       </view>
+    </view> -->
+    <view class='youhui'>
+       <view class='youhui_main displayFlex'>
+          <view class='youhui_main_left'>
+            <view>￥<text>20</text></view>
+            <view>代金券</view>
+          </view>
+          <view class='youhui_main_right'>
+             <view>新客户20元代金券</view>
+            <view>使用期限：2008-10-70~1205-20-50</view>
+          </view>
+          <view class='dingwei'>
+             <view class='topdian'></view>
+             <view class='baidian'></view>
+          </view>
+          <view class='piclogin'><image src='../../images/guoqi.png'></image></view>
+       </view>
+    
     </view>
+
+
   </view>
 </view>

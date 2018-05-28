@@ -1,18 +1,52 @@
+.displayFlex{
+  display: flex;
+  flex-wrap:wrap;
+}
 .o-top {
-  height: 145rpx;
-  border-bottom: 1rpx solid #e5e5e5;
+  height: 141rpx;
+  border-bottom: 1rpx solid #eaeaea;
   padding: 10rpx 10rpx 20rpx;
   display: flex;
   border-top: 10px solid #eee
 }
-.o-top .o-top-img {
+.o-top-mainLisy{width: 90%;margin: 0 auto;}
+.o-top-main{
+  line-height: 141rpx;
+  margin:0 auto;
+  justify-content: space-between;
+  }
+  .o-top-main-left{
+     line-height: 141rpx;
+  }
+.o-top-img {
   width: 110rpx;
   height: 110rpx;
-  margin-right: 70rpx;
-  vertical-align: middle;  
-  padding: 30rpx;
+  display:block;
+  margin-top:15rpx;
+  margin-right: 16rpx;
 }
-.o-top .o-top-name {
+.text{
+  font-size: 28rpx;
+  color:#383838;
+  display: inline-block;
+  }
+.textcode{ line-height: 30rpx;margin-top:-37rpx;
+}
+.o-top-main-right{
+  width: 95rpx;
+  text-align: center;
+  font-size: 22rpx;
+  color: #7d7d7d;
+}
+.main-right-img{
+  width: 50rpx;
+  height:50rpx;
+  border-radius: 50%;
+  margin-top: 24rpx;
+}
+
+
+/* .o-top .o-top-name {
   display: flex;
   flex-direction: column;
   font-size: 28rpx;
@@ -29,7 +63,7 @@
   background-color: #f00;
   padding: 2rpx 5rpx;
   margin-right: 10rpx;
-}
+} */
 .o-top .o-top-number {
   background-color: #f00;
   color: #fff;
@@ -61,14 +95,16 @@
 }
 
 .form_group {
-  display: flex;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 18rpx;
+  margin-bottom: 18rpx;
   flex-direction: row;
   justify-content: space-between;
-  margin: 18rpx;
   line-height: 60rpx;
   border: 1px solid #ddd;
-  border-bottom: 10 solid #ddd;
-  height: 50px;
+  border-radius:6rpx;
+  
 }
 
 .placeholder_style {
@@ -78,23 +114,34 @@
   width: 230rpx;
   margin: auto;
 }
+.form_group text{
+  height: 92rpx;
+  line-height: 92rpx;
+  font-size: 30rpx;
+  color: #171717;
+  padding-left:25rpx;
 
-.form_group text input {
+}
+.form_group input {
   text-align: right;
   width: 230rpx;
   font-size: 14px;
   height: 50px;
   margin: auto;
 }
-
+.tishi{width: 90%;margin: 0 auto;font-size: 24rpx;color: #979797;line-height: 72rpx;}
+.tishi image{width: 36rpx;height:36rpx;vertical-align: middle;margin-right:10rpx;
+}
 .form-price {
   border-bottom: 10px solid #EEE
 }
 
 .activity-price {
-  height: 50px;
+  line-height: 50px;
   border-bottom: 10px solid #EEE;
   margin:auto;
+  font-size: 28rpx;
+  padding-left: 35rpx;
 }
 
 
@@ -103,11 +150,34 @@
 }
 
 .ar_book {
-  background: #d24a58;
+  background: #9dd79a;
   font-size: 32rpx;
   color: #fff;
   border-radius: 15rpx;
   margin: auto;
   width: 90%;
-  border-top: 10px;
+  margin-top:35rpx;
 }
+
+
+
+.ar_select{
+  width: 90%;
+  height: 160rpx;
+  margin: 0 auto;
+  margin-top: 54rpx;
+  }
+  .ar_select_li{
+    width: 33.33%;
+    background: #fff;
+    text-align: center;
+    font-size: 22rpx;
+    color: #989898;
+  }
+  .ar_select_li view{
+    height: 60rpx;
+  }
+  .ar_select_li view image{
+     width: 34rpx;
+     height: 42rpx;
+  }

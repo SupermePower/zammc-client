@@ -82,3 +82,13 @@
   width:100rpx; 
   height:100rpx;
 }
+
+.div{
+  width: 50rpx;
+  height: 50rpx;
+  background: red;
+  position: fixed;
+  bottom: 150rpx;
+  right: 20rpx;
+  border-radius: 50%;
+}

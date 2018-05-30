@@ -23,8 +23,8 @@
       <!--左侧导航选项-->
       <view class="menu0-left">
         <scroll-view scroll-y="true" style="height: {{ scrollHeight }}rpx">
-          <view bindtap="leftChoose" data-menulistid="{{ item.id }}" class="{{ index == 0 ? 'iconfont icon-huo' : '' }} menu0-l-item {{ currentleftmenu == index ? 'active' : '' }}" data-menu="{{ index }}" wx:for="{{ restaurant.menuList }}" wx:key="unique">
-            {{ item.title }}
+          <view bindtap="leftChoose" data-menulistid="{{ item.cateId }}" class="{{ index == 0 ? 'iconfont icon-huo' : '' }} menu0-l-item {{ currentleftmenu == index ? 'active' : '' }}" data-menu="{{ index }}" wx:for="{{menuList}}" wx:key="unique">
+            {{ item.cateName }}
           </view>
         </scroll-view>
       </view>
@@ -49,24 +49,24 @@
         </view>
         <!--菜单内容-->
         <scroll-view scroll-y="true" scroll-with-animation="true" scroll-into-view="{{ currentmenuid }}" style="height: {{ scrollHeight - needDistance }}rpx">
-          <block wx:for="{{ restaurant.menuList }}" wx:for-item="menu0List">
+          <block wx:for="{{menuList}}" wx:for-item="menu0List">
             <!--商品分类标题-->
-            <view class="menu0-r-title" id="{{ menu0List.id }}">{{ menu0List.title }}</view>
+            <view class="menu0-r-title" id="{{ menu0List.cateId }}">{{ menu0List.cateName }}</view>
             <!--循环商品信息-->
-            <view class="menu0-r-goods" data-menus="{{ index }}" wx:for="{{ menu0List.list }}" wx:key="unique">
-              <image src="{{ item.img }}"></image>
+            <view class="menu0-r-goods" data-menus="{{ index }}" wx:for="{{ menu0List.goodsEntities }}" wx:key="unique">
+              <image src="{{ item.goodsImg }}"></image>
               <view class="menu0-r-g">
-                <view>{{ item.name }}</view>
-                <view>月售 {{ item.count }} 好评 {{ item.good }}</view>
+                <view>{{ item.goodsName }}</view>
+                <view>月售 {{ item.goodsId }} 好评 {{ item.goodsMsg }}</view>
                 <view class="menu0-r-price">
-                  ￥ {{ item.price }} 元
+                  ￥ {{ item.goodsPrice }} 元
                 </view>
               </view>
               <!--购买商品按钮-->
               <view class="order-btn">
-                <view style="visibility: {{ chooseGoods.goods[item.id] > 0 ? 'visible' : 'hidden' }}" class="del-btn" catchtap="delorder" data-goodsid="{{ item.id }}">-</view>
-                <view style="visibility: {{ chooseGoods.goods[item.id] > 0 ? 'visible' : 'hidden' }}" class="order-number">{{ chooseGoods.goods[item.id] }}</view>
-                <view class="add-btn" catchtap="addorder" data-goodsid="{{ item.id }}">+</view>
+                <view style="visibility: {{ chooseGoods.goods[item.goodsId] > 0 ? 'visible' : 'hidden' }}" class="del-btn" catchtap="delorder" data-goodsid="{{ item.goodsId }}" data-goodsprice="{{item.goodsPrice }}" data-goodsname="{{item.goodsname }}">-</view>
+                <view style="visibility: {{ chooseGoods.goods[item.goodsId] > 0 ? 'visible' : 'hidden' }}" class="order-number">{{ chooseGoods.goods[item.goodsId] }}</view>
+                <view class="add-btn" catchtap="addorder" data-goodsid="{{ item.goodsId }}" data-goodsprice="{{item.goodsPrice }}" data-goodsname="{{item.goodsName }}" data-goodstype="{{item.goodsType }}">+</view>
               </view>
             </view>
           </block>
@@ -77,26 +77,45 @@
     <view class="shop-car-wrap {{ chooseGoods.allCount > 0 ? 'show' : '' }}">
       <view wx:if="{{ showShopCarContent && chooseGoods.money > 0 }}" class="shop-car-content">
         <view class="shop-car-content-title">
-          <text style="color: #000;">我的购物车</text>
+
+          <view class="table">
+            <view class="tr bg-w">
+              <view class="th">名称</view>
+              <view class="th">数量</view>
+              <view class="th ">价格</view>
+            <view class="th ">小计</view>
+            </view>
+            <block wx:for="{{shopCar}}" wx:key="{{code}}">
+              <view class="tr bg-g" >
+                <view class="td">{{item.name}}</view>
+                <view class="td">{{item.num}}</view>
+                <view class="td">{{item.price}}</view>
+              <view class="td">{{item.price*item.num}}</view>
+              </view>
+            </block>
+          </view>
+
         </view>
         <!--已选商品信息-->
         <scroll-view scroll-y="true" style="height: 470rpx">
-          <block wx:for="{{ restaurant.menuList }}" wx:for-item="menu0List">
+          <block wx:for="{{menuList }}" wx:for-item="menu0List">
             <!--循环商品信息-->
-            <view wx:if="{{ chooseGoods.goods[item.id] > 0 }}" class="menu0-r-goods" data-menus="{{ index }}" wx:for="{{ menu0List.list }}" wx:key="unique">
-              <image src="{{ item.img }}"></image>
+            <view wx:if="{{ chooseGoods.goods[item.id] > 0 }}" class="menu0-r-goods" data-menus="{{ index }}" wx:for="{{ menu0List.goodsEntities }}" wx:key="unique">
+              <image src="{{ item.goodsImg }}"></image>
               <view class="menu0-r-g">
-                <view>{{ item.name }}</view>
+                <view>{{ item.goodsName }}</view>
                 <!--<view>月售 {{ item.count }} 好评 {{ item.good }}</view>-->
                 <view class="menu0-r-price">
-                  ￥ {{ item.price }} 元
+                  ￥ {{ item.goodsPrice }} 元
                 </view>
               </view>
               <!--购买商品按钮-->
               <view class="order-btn">
                 <view style="visibility: {{ chooseGoods.goods[item.id] > 0 ? 'visible' : 'hidden' }}" class="del-btn" catchtap="delorder" data-goodsid="{{ item.id }}">-</view>
                 <view style="visibility: {{ chooseGoods.goods[item.id] > 0 ? 'visible' : 'hidden' }}" class="order-number">{{ chooseGoods.goods[item.id] }}</view>
+
                 <view class="add-btn" catchtap="addorder" data-goodsid="{{ item.id }}">+</view>
+                
               </view>
             </view>
           </block>
@@ -109,6 +128,21 @@
       </view>
     </view>
     <!--<view class="menu0-bottom"></view>-->
+  </view>
+</view>
+
+<!-- 选择弹窗 -->
+ <view class="drawer_screen" bindtap="selectInfo" data-statu="close" wx:if="{{showModalStatus}}"></view> 
+<view class="drawer_box_ad" wx:if="{{showModalStatus}}">
+  <view class="drawer_content_ad">
+     <view style='font-size:16px;display:flex;justify-content:center;  '>规格</view> 
+    <view  wx:for="{{ typeMsg.types }}" wx:key="unique" wx:for-index="idx" >
+        <view class="select-line-nav">{{ item.typeName }}</view>
+        <view style='display:flex'>
+          <view class="select-tab {{ite==sizeIndex[idx]?'select-active':''}}" wx:for="{{item.typeMsg}}" wx:key="unique" wx:for-index="idx2" wx:for-item="ite" data-index='{{ite}}' data-name='{{ite}}' data-findex='{{idx}}' bindtap='chooseSE'>{{ite}}</view>
+        </view>
+    </view>
+      <button class="btn-putIn" bindtap='addToCart'>加入购物车</button>
   </view>
 </view>
 <!--遮罩层-->

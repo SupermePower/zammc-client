@@ -18,32 +18,32 @@
         <input type='number' name="reserveNumbers" placeholder-class='placeholder_style'></input>
       </view>
       <view class='form_date'>
-        <text>服务时间</text>
-        <view class="ar_date_time">
-          <view class="ar_date">
+        <text class='form_group_text'>服务时间</text>
+        <view class="ar_date_time displayFlex">
+           <view class="ar_date">
             <picker mode="date" placeholder="选择日期" value="{{date}}" start="{{startDate}}" end="{{endDate}}" bindchange="bindDateChange">
-              <view>
+              <view class="ar_date_po">
               <input hidden='true' name="currentDate" value='{{currentDate}}'></input>
                 {{currentDate}}
               </view>
             </picker>
-          </view>
-          <view class="ar_time">
+          </view> 
+           <view class="ar_time">
             <picker mode="time" placeholder="选择时间" value="{{time}}" start="01:00" end="24:00" bindchange="bindTimeChange">
-              <view>
+              <view class="ar_date_po">
               <input hidden='true' name="currentTime" value='{{currentTime}}'></input>
                 {{currentTime}}
               </view>
             </picker>
-          </view>
+          </view> 
         </view>
       </view>
       <view class='form_group'>
-        <text>留言信息</text>
+        <text class='form_group_text'>留言信息</text>
         <textarea class="input_msg" name="summary"></textarea>
       </view>
       <view>
-        <button class="ar_book" form-type='submit'>确认预定</button>
+        <button class="ar_book" form-type='submit'>预定</button>
       </view>
     </view>
   </form>

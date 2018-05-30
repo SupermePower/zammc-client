@@ -505,3 +505,95 @@
   padding: 8rpx;
   vertical-align: middle;
 }
+
+/*购物车表格  */
+.table {
+  border: 0px solid darkgray;
+}
+.tr {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  height: 3rem;
+  align-items: center;
+}
+.td {
+    width:40%;
+    justify-content: center;
+    text-align: center;
+    color: black;
+    font-size: 15px
+    
+}
+.bg-w{
+  background: snow;
+}
+.bg-g{
+  background: snow;
+}
+.th {
+  width: 25%;
+  justify-content: center;
+  background: #3366FF;
+  color: #fff;
+  display: flex;
+  height: 2rem;
+  align-items: center;
+  font-size: 18px
+}
+
+
+
+.drawer_screen {  
+  width: 100%;  
+  height: 100%;  
+  position: fixed;  
+  top: 0;  
+  left: 0;  
+  z-index: 1000;  
+  background: #000;  
+  opacity: 0.5;  
+  overflow: hidden;  
+}  
+  
+.drawer_box_ad { 
+  margin-left: 7%; 
+  width: 86%; 
+  overflow: hidden;  
+  position: fixed;  
+  top: 15%; 
+  z-index: 1001;  
+  background: #FFFFFF;  
+  border-radius: 4px;
+} 
+
+.select-line-nav{
+  font-size:12px;
+  margin-left:5px;
+  margin-top:10px;
+  color:#ABABAB;
+}
+
+.select-tab{
+  padding:5px 7px;
+  border:1px solid #ABABAB;
+  font-size:12px;
+  border-radius:5px;
+  margin:5px;
+  color:#ABABAB;
+  z-index:1002;
+}
+
+.btn-putIn{
+  height:40px;
+  width:100px;
+  font-size:14px;
+  background:#FF9C35;
+  color:white;
+  margin-right:20px;
+}
+
+.select-active{
+  color:#FF9C35;
+  border:1px solid #FF9C35;
+}

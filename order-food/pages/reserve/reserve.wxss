@@ -1,12 +1,10 @@
 .container {
-  background: #fff;
+  background: #efefef;
 }
 
 .ar_coverpath {
   width: 100%;
-  margin: 0rpx;
-  padding: 0rpx;
-  height: 175px;
+  height: 250px;
 }
 
 .ar_coverpath image {
@@ -49,15 +47,29 @@
 
 .ar_date_time {
   width: 100%;
-  display: flex;
+  height: 100%;
+  font-size: 30rpx;
+  /* display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 30rpx 0rpx 60rpx;
+  margin: 44rpx 0rpx 60rpx; */
+  /* border: none; */
+}
+.ar_date,.ar_time{
+  height: 100%;
+}
+.ar_date_po{
+  margin-top:26rpx;
+}
+.ar_date_time .ar_date {
+  width: 47%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
   font-size: 30rpx;
   border: none;
 }
-
-.ar_date_time .ar_date, .ar_date_time .ar_time {
+ .ar_date_time .ar_time {
   width: 47%;
   display: flex;
   flex-direction: row;
@@ -76,13 +88,13 @@
   height: 38rpx;
 }
 
-.ar_date_time picker {
+/* .ar_date_time picker {
   width: 220rpx;
   border-radius: 8rpx;
   padding: 0rpx 10rpx;
   margin-left: 10rpx;
   border: none;
-}
+} */
 
 .input_msg {
   border: none;
@@ -94,17 +106,20 @@
 }
 
 .ar_book {
-  background: #d24a58;
+  width: 90%;
+  background: #ff8c31;
   font-size: 32rpx;
   color: #fff;
   border-radius: 0rpx;
-  margin: 40rpx 0rpx 10rpx;
+  margin: 0 auto;
+  margin-top: 52rpx;
 }
 
 page {
   display: flex;
   flex-direction: column;
   height: 100%;
+  background: #efefef;
 }
 
 .navbar {
@@ -157,8 +172,8 @@ page {
   justify-content: space-between;
   margin: 18rpx;
   line-height: 60rpx;
-  border: 1px solid #ddd;
   border-bottom: 10 solid #ddd;
+  background:#fff;
 }
 
 .form_date {
@@ -167,10 +182,10 @@ page {
   justify-content: space-between;
   margin: 18rpx;
   line-height: 60rpx;
-  border: 1px solid #ddd;
   border-bottom: 10 solid #ddd;
   font-size: 14px;
   height: 60px;
+  background:#fff;
 }
 
 .placeholder_style {
@@ -181,8 +196,10 @@ page {
 
 .form_group text {
   text-align: right;
-  width: 140rpx;
+  /* width: 140rpx; */
   font-size: 14px;
+  padding-left: 20rpx;
+  color: #797979;
 }
 
 .form_date text {
@@ -193,7 +210,7 @@ page {
 }
 
 .form_group input, .form_group picker {
-  width: 440rpx;
+  width: 440rpx; 
   border: none;
   border-radius: 8rpx;
   height: 60rpx;
@@ -204,4 +221,14 @@ page {
 .form_group .sendmsg_input {
   width: 290rpx;
   margin-right: 14rpx;
+}
+.form_date .form_group_text,.form_group .form_group_text{
+  /* width: 212rpx; */
+  text-align: left;
+  padding-left: 20rpx;
+  color: #797979;
+  }
+.displayFlex{
+  display: flex;
+  flex-wrap:wrap;
 }

@@ -9,199 +9,36 @@ Page({
    * 页面的初始数据
    */
   data: {
+    sizeIndex: 0,
     title: 'ordering',
-    notice: [{
-      imgUrl: '../../images/reduce.png',
-      notice: '满100减5，满200减15，满300减15'
-    }, {
-      imgUrl: '../../images/new.png',
-      notice: '新用户下单立减10元'
-    }, {
-      imgUrl: '../../images/msg.png',
-      notice: '凡劳动节当天到店均有好礼相送'
-    }],
-    restaurant: {
-      img: 'https://order-foods-img-1256105536.cos.ap-chengdu.myqcloud.com/金掌勺店面图.png',
-      name: '金掌勺',
-      id: 'remaid',
-      address: '汇德商业大厦501',
-      tel: '010-88888888',
-      status: '满桌',
-      grade: 'four-star',
-      gradeNumber: '4.8',
-      comment: [{
-        content: '服务态度好',
-        number: '932'
-      }, {
-        content: '食材新鲜',
-        number: '932'
-      }, {
-        content: '味道赞',
-        number: '932'
-      }, {
-        content: '一',
-        number: '9132'
-      }, {
-        content: '两个',
-        number: '9132'
-      }, {
-        content: '四个个字',
-        number: '9132'
-      }, {
-        content: '三个字',
-        number: '9132'
-      }],
-      menuList: [{
-        title: '特色',
-        id: 'list1',
-        list: [{
-          img: 'https://order-foods-img-1256105536.cos.ap-chengdu.myqcloud.com/锅包肉.png',
-          name: '锅包肉',
-          count: '1805',
-          good: '173',
-          price: '43.5',
-          id: 'list1_1'
-        }, {
-            img: 'https://order-foods-img-1256105536.cos.ap-chengdu.myqcloud.com/杀猪菜.png',
-          name: '杀猪菜',
-          count: '1805',
-          good: '173',
-          price: '30',
-          id: 'list1_2'
-        }, {
-            img: 'https://order-foods-img-1256105536.cos.ap-chengdu.myqcloud.com/猪肉炖粉条.png',
-          name: '猪肉炖粉条',
-          count: '1805',
-          good: '173',
-          price: '36',
-          id: 'list1_3'
-        }, {
-            img: 'https://order-foods-img-1256105536.cos.ap-chengdu.myqcloud.com/小鸡炖蘑菇.png',
-          name: '小鸡炖蘑菇',
-          count: '1805',
-          good: '173',
-          price: '46',
-          id: 'list1_4'
-        }]
-      }, {
-        title: '热菜',
-        id: 'list3',
-        list: [{
-          img: 'https://order-foods-img-1256105536.cos.ap-chengdu.myqcloud.com/锅包肉.png',
-          name: '锅包肉',
-          count: '1805',
-          good: '173',
-          price: '43.5',
-          id: 'list1_1'
-        }, {
-            img: 'https://order-foods-img-1256105536.cos.ap-chengdu.myqcloud.com/杀猪菜.png',
-          name: '杀猪菜',
-          count: '1805',
-          good: '173',
-          price: '30',
-          id: 'list1_2'
-        }, {
-            img: 'https://order-foods-img-1256105536.cos.ap-chengdu.myqcloud.com/猪肉炖粉条.png',
-          name: '猪肉炖粉条',
-          count: '1805',
-          good: '173',
-          price: '36',
-          id: 'list1_3'
-        }, {
-            img: 'https://order-foods-img-1256105536.cos.ap-chengdu.myqcloud.com/小鸡炖蘑菇.png',
-          name: '小鸡炖蘑菇',
-          count: '1805',
-          good: '173',
-          price: '46',
-          id: 'list1_4'
-        }, {
-            img: 'https://order-foods-img-1256105536.cos.ap-chengdu.myqcloud.com/鱼香肉丝.png',
-          name: '鱼香肉丝',
-          count: '1805',
-          good: '173',
-          price: '46',
-          id: 'list1_5'
-        }]
-      }, {
-        title: '凉菜',
-        id: 'list4',
-        list: [{
-          img: 'https://order-foods-img-1256105536.cos.ap-chengdu.myqcloud.com/家常凉菜.jpg',
-          name: '家常凉菜',
-          count: '1805',
-          good: '173',
-          price: '23.5'
-        }, {
-          img: 'https://order-foods-img-1256105536.cos.ap-chengdu.myqcloud.com/水果沙拉.png',
-          name: '水果沙拉',
-          count: '1805',
-          good: '173',
-          price: '23.5'
-        }, {
-          img: 'https://order-foods-img-1256105536.cos.ap-chengdu.myqcloud.com/酸辣蕨根粉.jpg',
-          name: '酸辣蕨根粉',
-          count: '1805',
-          good: '173',
-          price: '23.5'
-        }]
-      }, {
-        title: '汤类',
-        id: 'list5',
-        list: [{
-          img: 'https://order-foods-img-1256105536.cos.ap-chengdu.myqcloud.com/西红柿鸡蛋汤.jpg',
-          name: '西红柿鸡蛋汤',
-          count: '1805',
-          good: '173',
-          price: '23.5'
-        }, {
-          img: 'https://order-foods-img-1256105536.cos.ap-chengdu.myqcloud.com/疙瘩汤.jpg',
-          name: '疙瘩汤',
-          count: '1805',
-          good: '173',
-          price: '23.5'
-        }, {
-          img: 'https://order-foods-img-1256105536.cos.ap-chengdu.myqcloud.com/酸辣汤.jpg',
-          name: '酸辣汤',
-          count: '1805',
-          good: '173',
-          price: '23.5'
-        }, {
-          img: 'https://order-foods-img-1256105536.cos.ap-chengdu.myqcloud.com/紫菜蛋花汤.png',
-          name: '紫菜蛋花汤',
-          count: '1805',
-          good: '173',
-          price: '23.5'
-        }]
-      }, {
-        title: '主食',
-        id: 'list6',
-        list: [{
-          img: 'https://order-foods-img-1256105536.cos.ap-chengdu.myqcloud.com/米饭.jpg',
-          name: '米饭',
-          count: '1805',
-          good: '173',
-          price: '2'
-        }, {
-          img: 'https://order-foods-img-1256105536.cos.ap-chengdu.myqcloud.com/葱花饼.jpg',
-          name: '葱花饼',
-          count: '1805',
-          good: '173',
-          price: '2'
-        }, {
-          img: 'https://order-foods-img-1256105536.cos.ap-chengdu.myqcloud.com/馒头.jpg',
-          name: '馒头',
-          count: '1805',
-          good: '173',
-          price: '1'
-        }]
-      }],
-      coupon: {
-        id: 'code123123',
-        delmoney: 10,
-        condition: 100,
-        time: '2017-12-12'
-      }
-    },
+    // notice: [{
+    //   imgUrl: '../../images/reduce.png',
+    //   notice: '满100减5，满200减15，满300减15'
+    // }, {
+    //   imgUrl: '../../images/new.png',
+    //   notice: '新用户下单立减10元'
+    // }, {
+    //   imgUrl: '../../images/msg.png',
+    //   notice: '凡劳动节当天到店均有好礼相送'
+    // }],
+    // restaurant: {
+    //   img: 'https://order-foods-img-1256105536.cos.ap-chengdu.myqcloud.com/金掌勺店面图.png',
+    //   name: '金掌勺',
+    //   id: 'remaid',
+    //   address: '汇德商业大厦501',
+    //   tel: '010-88888888',
+    //   status: '满桌',
+    //   grade: 'four-star',
+    //   gradeNumber: '4.8',
+    //   coupon: {
+    //     id: 'code123123',
+    //     delmoney: 10,
+    //     condition: 100,
+    //     time: '2017-12-12'
+    //   }
+    // },
+    //是否展示弹框
+    showModalStatus: false,
     // 当前的tab
     currentmenu: 0,
     // 当前的left栏
@@ -214,60 +51,26 @@ Page({
     scrollHeight2: 815,
     showShopCarContent: false,
     showMask: false,
-    menu1content: [{
-      icon: 'iconfont icon-canshi',
-      title: '催促上菜'
-    }, {
-      icon: 'iconfont icon-lingdang-copy',
-      title: '呼叫服务员'
-    }, {
-      icon: 'iconfont icon-mifen2',
-      title: '加米饭'
-    }, {
-      icon: 'iconfont icon-jiubei',
-      title: '加酒水'
-    }],
-    comment: [{
-      username: '186****1234',
-      img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      grade: 'five-star',
-      time: '2016-5-5',
-      userComment: ['一二三四', '一', '一二三四', '一二', '一二三', '一二三四']
-    }, {
-      username: '186****1234',
-      img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      grade: 'one-star',
-      time: '2016-5-5',
-      userComment: ['一', '一二', '一二三', '一二三四']
-    }, {
-      username: '186****1234',
-      img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      grade: 'two-star',
-      time: '2016-5-5',
-      userComment: ['一', '一二', '一二三', '一二三四']
-    }, {
-      username: '186****1234',
-      img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      grade: 'four-star',
-      time: '2016-5-5',
-      userComment: ['一二三四', '一', '一二三四', '一二', '一二三', '一二三四']
-    }, {
-      username: '186****1234',
-      img: 'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      grade: 'three-star',
-      time: '2016-5-5',
-      userComment: ['一二三四', '一', '一二三四', '一二', '一二三', '一二三四']
-    }],
     chooseGoods: {
       // 饭店id
       restaurant_id: 'renmaid',
-      // 选择的商品数量
+      
+       // 选择的商品数量
       goods: {},
       // 总金额
       money: 0,
       // 总数
       allCount: 0
-    }
+    },
+    sizeIndex:{},
+    shopCar:{},
+    goodsItem:{
+      id:0,
+      num:0,
+      name:"",
+      price:0,
+      memo:""
+    },
   },
   /**
    * 确认订单
@@ -280,91 +83,43 @@ Page({
         mask: true
       });
     }
-    // todo 提交订单信息，然后去到确认页面
-    wx.navigateTo({
-      url: '../payorder/payorder?operation=checkOrder'
+    var chooseGoods = this.data.chooseGoods;
+    var shopCar=this.data.shopCar;
+    var msgArrys=new Array();
+    Object.keys(shopCar).forEach(function (key) {
+      msgArrys.unshift(shopCar[key]);
     });
-  },
+    console.log(msgArrys)
 
-  /**
-   * 计算消费金额
-   */
-  calculateMoney: function calculateMoney() {
-    var goods = this.data.chooseGoods.goods;
-    var menuList = this.data.restaurant.menuList;
-    var money = 0;
-    var singleMoney = 0;
-    for (var goodsId in goods) {
-      // console.log(goodsId)
-      // console.log(goods[goodsId])
-      var _iteratorNormalCompletion = true;
-      var _didIteratorError = false;
-      var _iteratorError = undefined;
-
-      try {
-        for (var _iterator = menuList[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-          var lists = _step.value;
-
-          // console.log(lists)
-          // 具体列表内的菜单
-          var list = lists.list;
-          // console.log(list)
-          var _iteratorNormalCompletion2 = true;
-          var _didIteratorError2 = false;
-          var _iteratorError2 = undefined;
-
-          try {
-            for (var _iterator2 = list[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-              var goodsID = _step2.value;
-
-              if (goodsID.id === goodsId) {
-                // console.log(goodsID.price)
-                // console.log(goods[goodsId])
-                singleMoney = goodsID.price * goods[goodsId];
-                // console.log('success')
-              }
-              // return console.log(goodsID)
-            }
-          } catch (err) {
-            _didIteratorError2 = true;
-            _iteratorError2 = err;
-          } finally {
-            try {
-              if (!_iteratorNormalCompletion2 && _iterator2.return) {
-                _iterator2.return();
-              }
-            } finally {
-              if (_didIteratorError2) {
-                throw _iteratorError2;
-              }
-            }
-          }
-        }
-      } catch (err) {
-        _didIteratorError = true;
-        _iteratorError = err;
-      } finally {
-        try {
-          if (!_iteratorNormalCompletion && _iterator.return) {
-            _iterator.return();
-          }
-        } finally {
-          if (_didIteratorError) {
-            throw _iteratorError;
-          }
+    wx.request({
+      url: 'http://localhost:8080/order-foods/order/placeOrder',
+      method: 'POST',
+      header: { 'Content-Type': 'application/json' },
+      data: {          //参数为json格式数据
+        userId:1,
+        goodMsg: msgArrys,
+        allCount: chooseGoods.allCount,
+        allMoney: chooseGoods.money
+      },
+      success: function (res) {
+        if (res.data.dealCode == 200) {
+           // todo 提交订单信息，然后去到确认页面
+          wx.navigateTo({
+            url: '../payorder/payorder?operation=checkOrder'
+          }); 
         }
       }
-
-      money += singleMoney;
-    }
-    return money;
+    })
   },
+
 
   /**
    * 显示购物车内容
    */
   showContent: function showContent() {
     if (this.data.chooseGoods.money <= 0) return;
+    console.log(this.data.showShopCarContent)
+    console.log(this.data.chooseGoods)
     this.setData({
       showShopCarContent: !this.data.showShopCarContent,
       showMask: !this.data.showMask
@@ -416,42 +171,7 @@ Page({
     });
   },
 
-  /**
-   * 选择桌子取号
-   */
-  getdesk: function getdesk(e) {
-    var index = e.currentTarget.dataset.desk;
-    var title = null;
-    if (index === '0') {
-      title = '小桌取号成功';
-    } else if (index === '1') {
-      title = '中桌取号成功';
-    } else {
-      title = '大桌取号成功';
-    }
-    wx.showToast({
-      title: title,
-      icon: 'success',
-      duration: 2000
-    });
-  },
 
-  /**
-   * 户呼叫服务
-   * @param e
-   */
-  menu1choose: function menu1choose(e) {
-    console.log(e.currentTarget.dataset.tabmenu);
-  },
-
-  /**
-   * 拨打电话
-   */
-  callPhone: function callPhone() {
-    wx.makePhoneCall({
-      phoneNumber: this.data.restaurant.tel
-    });
-  },
 
   /**
    * 修改标题栏文字
@@ -469,6 +189,9 @@ Page({
    */
   addorder: function addorder(e) {
     var goodsId = e.currentTarget.dataset.goodsid;
+    var goodsPrice = e.currentTarget.dataset.goodsprice;
+    var goodsName = e.currentTarget.dataset.goodsname;
+    var goodsType = e.currentTarget.dataset.goodstype;
     if (!goodsId) {
       return wx.showModal({
         title: '抱歉',
@@ -477,27 +200,61 @@ Page({
         confirmText: '我知道了'
       });
     }
-    var chooseGoods = this.data.chooseGoods;
-    var goods = chooseGoods.goods;
-    var count = goods[goodsId];
-    // 已有该商品
-    if (count) {
-      goods[goodsId] = ++count;
-    } else {
-      goods[goodsId] = 1;
+    if(goodsType==1){
+      //声明临时变量存储信息
+      var cache=new Object;
+      cache.id = goodsId;
+      cache.price = goodsPrice;
+      cache.name = goodsName;
+      cache.num = 1;
+      cache.memo='';
+      console.log(cache)
+      wx.setStorageSync('cache', cache)
+      this.chooseType(goodsId);
+    }else{
+      console.log("addorder else run")
+      var chooseGoods = this.data.chooseGoods;
+      var goods = chooseGoods.goods;
+      var count = goods[goodsId];
+
+      //购物车信息
+      var car = this.data.shopCar;
+      var goodItem = this.data.goodsItem;
+      // 已有该商品
+      if (count) {
+        //购物车操作
+        car[goodsId].num+=1;
+        //原有逻辑
+        goods[goodsId] = ++count;
+        goods.money+=goodsPrice
+      } else {
+        //购物车操作
+        goodItem.id=goodsId;
+        goodItem.price=goodsPrice;
+        goodItem.name=goodsName;
+        goodItem.num=1
+        car[goodsId]=goodItem;
+        //原有逻辑
+        goods[goodsId] = 1;
+        goods[goodsName] = goodsName;
+        goods.money = goodsPrice
+      }
+      chooseGoods.goods = goods;
+      this.setData({
+        chooseGoods: chooseGoods
+      });
+      ++chooseGoods.allCount;
+      var money = chooseGoods.money+goodsPrice; 
+      chooseGoods.money = money;
+      // 增加计数
+      this.setData({
+        chooseGoods: chooseGoods,
+        shopCar:car
+      });
+      console.log(this.data.shopCar)
+      wx.setStorageSync('chooseGoods', this.data.chooseGoods);
+      wx.setStorageSync('shopCar', this.data.shopCar);
     }
-    chooseGoods.goods = goods;
-    this.setData({
-      chooseGoods: chooseGoods
-    });
-    var money = this.calculateMoney();
-    chooseGoods.money = money;
-    // 增加计数
-    ++chooseGoods.allCount;
-    this.setData({
-      chooseGoods: chooseGoods
-    });
-    wx.setStorageSync('chooseGoods', this.data.chooseGoods);
   },
 
   /**
@@ -506,15 +263,27 @@ Page({
    */
   delorder: function delorder(e) {
     var goodsId = e.currentTarget.dataset.goodsid;
+    var goodsPrice = e.currentTarget.dataset.goodsprice;
+    var goodsName = e.currentTarget.dataset.goodsname;
+
+
     var chooseGoods = this.data.chooseGoods;
     var goods = chooseGoods.goods;
     var count = goods[goodsId];
+
+    var car = this.data.shopCar;
+    car[goodsId].num-=1;
+    if (car[goodsId].num==0){
+      delete car[goodsId]
+    }
     goods[goodsId] = --count;
+    goods.money-=goodsPrice
     chooseGoods.goods = goods;
     this.setData({
-      chooseGoods: chooseGoods
+      chooseGoods: chooseGoods,
+      shopCar:car
     });
-    var money = this.calculateMoney();
+    var money = chooseGoods.money-goodsPrice //this.calculateMoney();
     chooseGoods.money = money;
     // 减少计数
     --chooseGoods.allCount;
@@ -527,7 +296,115 @@ Page({
     this.setData({
       chooseGoods: chooseGoods
     });
+    console.log(this.data.shopCar)
     wx.setStorageSync('chooseGoods', this.data.chooseGoods);
+    wx.setStorageSync('shopCar', this.data.shopCar);
+  },
+
+  /**
+   * 选择规格
+   */
+  chooseType:function(id){
+    wx.setStorageSync('goodsId', id)
+    var _this=this;
+    wx.request({
+      url: 'http://localhost:8080/order-foods/dish/goodsType',
+      method: 'POST',
+      data:{
+        goodsId:id
+      },
+      header: { 'Content-Type': 'application/json' },
+      success: function (res) {
+        if (res.data.dealCode == 200) {
+          _this.setData({
+            showModalStatus: true,
+            typeMsg: res.data.dealResult,
+          });
+        }
+      }
+    })
+  },
+  addToCart: function (e) {
+    var goodsId = wx.getStorageSync('goodsId');
+    var typeMsg = wx.getStorageSync('typeMsg');
+    var cache = wx.getStorageSync('cache');
+    console.log("cache"+cache)
+    console.log(goodsId);
+    var car = this.data.shopCar;
+    console.log(car)
+    var item=car[goodsId];
+    console.log(item);
+    if(item==null){
+      cache.memo = typeMsg
+      car[goodsId] =cache;
+      console.log("if  ----->run");
+    }else{
+      //存在 给数量+1
+      item.num+=1;
+      item.memo+="|"+typeMsg
+      car[goodsId] = item;
+      console.log("else  ----->run");
+    }
+    console.log(car)
+    //构建chooseGoods
+    var chooseGoods=this.data.chooseGoods;
+    var goods = chooseGoods.goods;
+    if (goods[goodsId] == undefined){
+      console.log("ffffffffff");
+      goods[goodsId] = 1;
+      goods.money = cache.price;
+    }else{
+      console.log("dddddddddddddddd");
+      goods[goodsId] +=1;
+      goods.money += cache.price
+    }
+    ++chooseGoods.allCount;
+    chooseGoods.money += cache.price; 
+    console.log(chooseGoods)
+    this.setData({
+      chooseGoods: chooseGoods,
+      shopCar: car,
+      showModalStatus: false
+    });
+    wx.removeStorageSync('typeMsg');
+    wx.setStorageSync('shopCar', this.data.shopCar);
+    wx.setStorageSync('chooseGoods', this.data.chooseGoods);
+  },
+
+  chooseSE: function (e) {
+    console.log("选规格");
+    var index = e.currentTarget.dataset.index;
+    var name = e.currentTarget.dataset.name;
+    var findex = e.currentTarget.dataset.findex;
+    var chooseIndex = this.data.sizeIndex;
+    chooseIndex[findex]=name;
+    this.setData({
+      sizeIndex: chooseIndex
+    });
+    var typeMsg="";
+    var arr =Object.keys(chooseIndex)
+    for (var j = 0, len = arr.length; j < len; j++) {
+      console.log(j)
+      if(j==len-1){
+        typeMsg += chooseIndex[arr[j]];
+      }else{
+        typeMsg += chooseIndex[arr[j]] + "-";
+      }
+     
+    }
+    console.log(typeMsg)
+    wx.setStorageSync('typeMsg', typeMsg)
+  },
+
+  selectInfo: function (e) {
+    console.log("++++++？？？？？？")
+    wx.removeStorageSync("cache");
+    wx.removeStorageSync('typeMsg');
+    // 增加计数
+    this.setData({
+      showModalStatus: false,
+    });
+    console.log("oveer");
   },
 
   /**
@@ -536,6 +413,21 @@ Page({
   onLoad: function onLoad() {
     // TODO: onLoad
     // 改变标题栏文字
+    var _this=this;
+    wx.request({
+      url: 'http://localhost:8080/order-foods/dish/dishList',
+      method: 'POST',
+      header: { 'Content-Type': 'application/json' },
+      success: function (res) {
+        if (res.data.dealCode == 200) {
+          _this.setData({
+            menuList: res.data.dealResult.dishList,
+            notice: res.data.dealResult.notice,
+            restaurant: res.data.dealResult.restaurant
+          });
+        }
+      }
+    })
     this.setNavigatorText();
   },
 
@@ -561,6 +453,7 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function onHide() {
+    console.log("页面 隐藏")
     // TODO: onHide
   },
 
@@ -570,6 +463,7 @@ Page({
    */
   onUnload: function onUnload() {
     // TODO: onUnload
+    console.log("页面 卸载")
   },
 
 

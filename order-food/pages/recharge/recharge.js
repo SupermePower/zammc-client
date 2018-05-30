@@ -36,7 +36,8 @@ Page({
   recharge: function recharge(e) {
     var user = wx.getStorageSync('user') || {};
     var userId = user.openid;
-    if (userId == '') {
+    console.log('-------->' + userId);
+    if (userId == '' || userId == 'undefined') {
       wx.showToast({
         title: '请先授权',
         icon: 'fail',
@@ -69,7 +70,7 @@ Page({
       }
     }
     wx.request({
-        url: 'http://localhost:8080/order-foods/recharge/recharge',
+      url: 'https://www.sxmbyd.com/order-foods/recharge/recharge',
         header: {
           "Content-Type": "application/json"
         },
@@ -79,12 +80,14 @@ Page({
           if (res.data.dealCode == 200) {
             wx.requestPayment(
               {
-                'timeStamp': '',
-                'nonceStr': '',
-                'package': '',
+                'timeStamp': res.data.dealResult.timeStamp,
+                'nonceStr': res.data.dealResult.nonceStr,
+                'package': res.data.dealResult.package,
                 'signType': 'MD5',
-                'paySign': '',
-                'success': function (res) { },
+                'paySign': res.data.dealResult.paySign,
+                'success': function (res) {
+                  console.log(res)
+                 },
                 'fail': function (res) { },
                 'complete': function (res) { }
               })
@@ -104,7 +107,7 @@ Page({
   onLoad: function () {
     var that = this;
     wx.request({
-      url: 'http://localhost:8080/order-foods/recharge/queryRechargePackage',
+      url: 'https://www.sxmbyd.com/order-foods/recharge/queryRechargePackage',
       header: {
         "Content-Type": "application/json"
       },

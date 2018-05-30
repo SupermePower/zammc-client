@@ -21,7 +21,8 @@
       </view>
     </view> -->
     <view class='youhui'>
-       <view class='youhui_main displayFlex'>
+    <!--灰色代金卷  -->
+       <!-- <view class='youhui_main displayFlex'>
           <view class='youhui_main_left'>
             <view>￥<text>20</text></view>
             <view>代金券</view>
@@ -35,9 +36,43 @@
              <view class='baidian'></view>
           </view>
           <view class='piclogin'><image src='../../images/guoqi.png'></image></view>
+       </view> -->
+    <!-- <view class='youhui_main youhui_main_bg displayFlex'>
+          <view class='youhui_main_left'>
+            <view>￥<text>20</text></view>
+            <view>代金券</view>
+          </view>
+          <view class='youhui_main_right'>
+             <view>新客户20元代金券</view>
+            <view>使用期限：2008-10-70~1205-20-50</view>
+          </view>
+          <view class='dingwei'>
+             <view class='topdian'></view>
+             <view class='baidian'></view>
+          </view>
+          <view  class='piclogin'><image src='../../images/guoqi.png'></image></view>
+       </view> -->
+    <view wx:for="{{ coupons}}" >
+     <view class="{{item.expire==1?'youhui_main youhui_main_bg displayFlex':'youhui_main displayFlex'}}" bindtap='getCoupon' data-receive='{{item.isReceive}}' data-couponid='{{item.couponId}}'>
+          <view class='youhui_main_left'>
+            <view>￥<text>{{ item.couponCondition }}</text></view>
+            <!--0优惠券 1代金券  -->
+            <view wx:if="{{item.couponType==1}}">代金券</view>
+            <view wx:if="{{item.couponType==0}}">优惠卷</view>
+          </view>
+          <view class='youhui_main_right'>
+             <view>{{ item.couponName }}</view>
+            <view>使用期限：{{ item.couponTime }}</view>
+          </view>
+          <view class='dingwei'>
+             <view class='topdian'></view>
+             <view class='baidian'></view>
+          </view>
+          <view wx:if="{{item.expire==0}}" class='piclogin'><image src='../../images/guoqi.png'></image></view>
        </view>
-    
     </view>
+    </view>
+
 
 
   </view>

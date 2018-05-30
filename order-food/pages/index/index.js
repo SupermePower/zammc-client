@@ -9,6 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    show:'',
     title: 'index',
     userInfo: null,
     userSite: '定位中',
@@ -95,6 +96,30 @@ Page({
       wx.navigateTo({
         url: '../ordering/ordering'
       });
+      // var that = this;
+      // var show;
+      // wx.scanCode({
+      //   success: (res) => {
+      //     this.show = "结果:" + res.result + "二维码类型:" + res.scanType + "字符集:" + res.charSet + "路径:" + res.path;
+      //     that.setData({
+      //       show: this.show
+      //     })
+      //     wx.showToast({
+      //       title: '成功',
+      //       icon: 'success',
+      //       duration: 2000
+      //     })
+      //   },
+      //   fail: (res) => {
+      //     wx.showToast({
+      //       title: '失败',
+      //       icon: 'success',
+      //       duration: 2000
+      //     })
+      //   },
+      //   complete: (res) => {
+      //   }
+      // })
     }
     //收银台
     if (type == '2') {
@@ -140,6 +165,38 @@ Page({
     }).catch(console.info);
   },
 
+  click: function () {
+    var that = this;
+    var show;
+    wx.scanCode({
+      success: (res) => {
+        this.show = "结果:" + res.result + "二维码类型:" + res.scanType + "字符集:" + res.charSet + "路径:" + res.path;
+        that.setData({
+          show: this.show
+        })
+        wx.showToast({
+          title: '成功',
+          icon: 'success',
+          duration: 2000
+        })
+      },
+      fail: (res) => {
+        wx.showToast({
+          title: '失败',
+          icon: 'success',
+          duration: 2000
+        })
+      },
+      complete: (res) => {
+      }
+    })
+  },  
+
+
+
+
+
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -174,5 +231,11 @@ Page({
   onPullDownRefresh: function onPullDownRefresh() {
     console.log(' ---------- onPullDownRefresh ----------');
   }
+
+ 
+
+
+
+
 });
 //# sourceMappingURL=index.js.map

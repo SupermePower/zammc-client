@@ -65,6 +65,19 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function onReady() {
+
+    // wx.setStorageSync('chooseGoods', this.data.chooseGoods);
+    //wx.setStorageSync('shopCar', this.data.shopCar);
+    var _this=this;
+    var choseGoods=wx.getStorageSync('chooseGoods');
+    var shopCar=wx.getStorageSync('shopCar');
+    console.log(choseGoods);
+    console.log(shopCar);
+    _this.setData({
+      allMoney: choseGoods.money,
+      allCount: choseGoods.allCount,
+      shopCar:shopCar
+    })
     // TODO: onReady
   },
 

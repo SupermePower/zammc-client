@@ -488,6 +488,11 @@
   margin-top: 20rpx;
   position: relative;
 }
+.youhui view{margin-bottom: 20rpx;}
+/*未过期样式  */
+.youhui_main_bg{
+  background: #319eff;
+}
 .youhui_main_left{
   width: 25%;
   height: 168rpx;

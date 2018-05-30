@@ -79,7 +79,7 @@ page{
 }
 .region-title{
     font-size: 32rpx;
-    padding: 20rpx;
+    padding:20rpx 20rpx 20rpx 50rpx;
     line-height:40rpx;
 }
 .region-title text{
@@ -129,7 +129,12 @@ page{
     padding: 20rpx;
     line-height:40rpx;
 }
-
+.custom-amount text{
+  width:100%;
+  padding-left:32rpx;
+  margin-bottom:16rpx;
+  display:inline-block;
+  }
 .custom-amount input {
   border: 1px solid #eee;
   height: 40px;

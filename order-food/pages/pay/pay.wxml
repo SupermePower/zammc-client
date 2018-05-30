@@ -22,7 +22,16 @@
       <text>消费总金额(元)</text>
       <input type='text' name="name" placeholder='询问服务员后输入' ></input>
     </view>
-    <view class="tishi"><image class="" src="../../images/douding.jpg"></image>输入不参与优惠金额</view>
+    <view class="tishi">
+      <image class="add" src="../../images/douding.jpg"></image>
+      <image class="jian hide" src="../../images/jian.jpg"></image>输入不参与优惠金额
+    </view>
+    <view class='tishi_input hide'>
+      <view class='form_group displayFlex'>
+      <text>不参与优惠金额(元)</text>
+      <input type='text' name="name" placeholder='询问服务员后输入' ></input>
+    </view>
+    </view>
   </view>
   <view class='activity-price'>
     <text>每满100.00元减5.00元</text>

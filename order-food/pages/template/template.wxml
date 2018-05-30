@@ -1,6 +1,6 @@
 <!--carousel template-->
 <template name="carousel">
-    <view class="swiper" style='height:450rpx;'>
+    <view class="swiper" style='height:360rpx;'>
         <swiper indicator-dots="true" indicator-active-color="#fff" indicator-color="#ed4d30" autoplay="true" interval="5000" duration="500" circular="true" >
             <block wx:for="{{ imgUrls }}" wx:key="unique">
                 <swiper-item>

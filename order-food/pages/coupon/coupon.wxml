@@ -53,7 +53,7 @@
           <view  class='piclogin'><image src='../../images/guoqi.png'></image></view>
        </view> -->
     <view wx:for="{{ coupons}}" >
-     <view class="{{item.expire==1?'youhui_main youhui_main_bg displayFlex':'youhui_main displayFlex'}}" bindtap='getCoupon' data-receive='{{item.isReceive}}' data-couponid='{{item.couponId}}'>
+     <view class="{{item.expire==0?'youhui_main youhui_main_bg displayFlex':'youhui_main displayFlex'}}" bindtap='getCoupon' data-receive='{{item.isReceive}}' data-expire='{{item.expire}}' data-couponid='{{item.couponId}}'>
           <view class='youhui_main_left'>
             <view>￥<text>{{ item.couponCondition }}</text></view>
             <!--0优惠券 1代金券  -->
@@ -68,7 +68,7 @@
              <view class='topdian'></view>
              <view class='baidian'></view>
           </view>
-          <view wx:if="{{item.expire==0}}" class='piclogin'><image src='../../images/guoqi.png'></image></view>
+          <view wx:if="{{item.expire==1}}" class='piclogin'><image src='../../images/guoqi.png'></image></view>
        </view>
     </view>
     </view>

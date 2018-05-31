@@ -20,8 +20,14 @@ Page({
     console.log("getCoupon")
     var receive = e.currentTarget.dataset.receive;
     var couponid = e.currentTarget.dataset.couponid;
+    var expire = e.currentTarget.dataset.expire;
     console.log(receive)
-    console.log(couponid)
+    console.log(expire)
+    if(expire==1){//已过期
+      console.log("过期")
+      this.confirm("领取提示", "该卷已经过期")
+      return;
+    }
     if(receive==1){//已领取
       this.confirm("领取提示","用户已经领取该卷")
     }else{
@@ -35,7 +41,13 @@ Page({
           couponId: couponid
         },
         success: function (res) {
-          _this.confirm("领取提示", "领取成功")
+          console.log(res)
+          if (res.data.dealCode == 200){
+            _this.confirm("领取提示", "领取成功")
+          }else{
+            _this.confirm("领取提示", res.data.dealMsg)
+          }
+          
         }
       })
     }

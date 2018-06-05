@@ -4,7 +4,7 @@
   <!--banner-->
    <template is="carousel" data="{{ imgUrls }}"></template>
    <view class='container_cont_mi'>
-    <image src='../../images/home1.png'></image>
+    <image src='../../images/zammc-m.png'></image>
     <view>汗泥村大酒店<text>营业中</text></view>
    </view>
  </view>

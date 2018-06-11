@@ -29,7 +29,6 @@ App({
    */
   getUserInfo: function getUserInfo() {
     var _this = this;
-
     return new Promise(function (resolve, reject) {
       if (_this.data.userInfo) return reject(_this.data.userInfo);
       wechat.login().then(function () {
@@ -60,20 +59,12 @@ App({
     var that = this
     var user = wx.getStorageSync('user') || {};
     var userInfo = wx.getStorageSync('userInfo') || {};
-    console.log('=============>' + user.openid);
+    var userInformation = {};
     if ((!user.openid || (user.expires_in || Date.now()) < (Date.now() + 600)) && (!userInfo.nickName)) {
       wx.login({
         success: function (res) {
           if (res.code) {
-            wx.getUserInfo({
-              success: function (res) {
-                var objz = {};
-                objz.avatarUrl = res.userInfo.avatarUrl;
-                objz.nickName = res.userInfo.nickName;
-                //console.log(objz);  
-                wx.setStorageSync('userInfo', objz);//存储userInfo  
-              }
-            });
+            
             var d = that.globalData;//这里存储了appid、secret、token串    
             var l = 'https://api.weixin.qq.com/sns/jscode2session?appid=' + d.appid + '&secret=' + d.secret + '&js_code=' + res.code + '&grant_type=authorization_code';
             wx.request({
@@ -83,33 +74,41 @@ App({
                 var obj = {};
                 obj.openid = res.data.openid;
                 obj.expires_in = Date.now() + res.data.expires_in;
-                console.log('----->' + res.data.openid);
                 wx.setStorageSync('user', obj);//存储openid
               }
             });
-            var userInformation = wx.getStorageSync('userInfo') || {};
-            wx.request({
-              url: 'http://localhost:8080/order-foods/user/addUser',
-              header: {
-                "Content-Type": "application/json"
-              },
-              data: {
-                userId: user.openid,
-                nickName: userInformation.nickName,
-                avatarUrl: userInformation.avatarUrl,
-                city: userInformation.city,
-                country: userInformation.country,
-                gender: userInformation.gender,
-                language: userInformation.language,
-                province: userInformation.province
-              },
-              method: 'POST',
+            wx.getUserInfo({
               success: function (res) {
-                console.log(res);
+                console.log(res.userInfo.nickName);
+                var objz = {};
+                objz.avatarUrl = res.userInfo.avatarUrl;
+                objz.nickName = res.userInfo.nickName;
+                userInformation.avatarUrl = res.userInfo.avatarUrl;
+                userInformation.nickName = res.userInfo.nickName;
+                userInformation.userId = user.openid;
+                userInformation.city = res.userInfo.city;
+                userInformation.country = res.userInfo.country;
+                userInformation.gender = res.userInfo.gender;
+                userInformation.language = res.userInfo.language;
+                userInformation.province = res.userInfo.province;
+                wx.setStorageSync('userInfo', objz);//存储userInfo  
               }
             });
+           // var userInformation = wx.getStorageSync('userInfo') || {};
           } else {
             console.log('获取用户登录态失败！' + res.errMsg)
+          }
+        }
+      });
+      wx.getSetting({
+        success: function (res) {
+          if (res.authSetting['scope.userInfo']) {
+            // 已经授权，可以直接调用 getUserInfo 获取头像昵称
+            wx.getUserInfo({
+              success: function (res) {
+                console("用户信息"+res.userInfo)
+              }
+            })
           }
         }
       });

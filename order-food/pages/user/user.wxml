@@ -2,8 +2,8 @@
 <view class="user">
   <!--user-info-->
   <view class="user-info">
-    <image class="user-avatural" src="{{ userInfo.avatarUrl }}"></image>
-    <text class="user-name">{{ userInfo.nickName }}</text>
+    <open-data class="user-avatural" type="userAvatarUrl"></open-data>
+<open-data class="user-name" type="userNickName"></open-data>
   </view>
   <!--user-score
   <view class="user-score">

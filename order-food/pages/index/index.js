@@ -9,14 +9,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    show:'',
+    show: '',
     title: 'index',
     userInfo: null,
     userSite: '定位中',
     navList: [{
       navTitle: '预约',
       navIcon: '../../images/yuyue.png',
-      type:'0'
+      type: '0'
     }, {
       navTitle: '点餐',
       navIcon: '../../images/diancan.png',
@@ -37,20 +37,7 @@ Page({
       navTitle: '店铺详情',
       navIcon: '../../images/dianpuxiangqing.png',
       type: '5'
-    }],
-    notice: [{
-      imgUrl: '../../images/reduce.png',
-      notice: '满100减5，满200减15，满300减15'
-    }, {
-      imgUrl: '../../images/new.png',
-      notice: '新用户下单立减10元'
-    }, {
-      imgUrl: '../../images/msg.png',
-      notice: '凡劳动节当天到店均有好礼相送'
-    }],
-    imgUrls: ['https://order-foods-img-1256105536.cos.ap-chengdu.myqcloud.com/加盟广告图.png',
-      'https://order-foods-img-1256105536.cos.ap-chengdu.myqcloud.com/金掌勺店面图.png', 
-      'https://order-foods-img-1256105536.cos.ap-chengdu.myqcloud.com/海底捞店面图.png']
+    }]
   },
   /**
    * 用户选择位置
@@ -151,7 +138,53 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function onLoad() {
-    var _this = this;
+    var that = this;
+    wx.getSetting({
+      success: function (res) {
+        // 已经授权，可以直接调用 getUserInfo 获取头像昵称
+        wx.getUserInfo({
+          success: function (res) {
+            console("用户信息------>" + res.userInfo);
+            wx.request({
+              url: 'http://localhost:8080/order-foods/user/addUser',
+              header: {
+                "Content-Type": "application/json"
+              },
+              data: userInformation,
+              method: 'POST',
+              success: function (res) {
+                console.log("新增注册用户信息--------->" + res);
+              }
+            });
+          }
+        })
+      }
+    })
+
+    wx.request({
+      url: 'http://localhost:8080/order-foods/home/queryHomePage',
+      header: {
+        "Content-Type": "application/json"
+      },
+      method: 'POST',
+      success: function (res) {
+        if (res.data.dealCode == 200) {
+          that.setData({
+            notice: res.data.dealResult.notice,
+            imgUrls: res.data.dealResult.imgUrls,
+            restaurantName: res.data.dealResult.restaurantName,
+            restaurantStatus: res.data.dealResult.restaurantStatus
+          });
+        }
+      },
+      fail: function () {
+        wx.showToast({
+          title: '失败',
+          icon: 'fail',
+          duration: 1000
+        });
+      }
+    })
 
     wx.getLocation({
       success: function success(res) {
@@ -190,7 +223,7 @@ Page({
       complete: (res) => {
       }
     })
-  },  
+  },
 
 
 
@@ -232,7 +265,7 @@ Page({
     console.log(' ---------- onPullDownRefresh ----------');
   }
 
- 
+
 
 
 

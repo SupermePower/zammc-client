@@ -23,7 +23,7 @@ Page({
     var formData = e.detail.value;
     console.log(formData);
     wx.request({
-      url: 'http://localhost:8080/order-foods/reserve/userReserve',
+      url: 'https://www.sxmbyd.com/order-foods/reserve/userReserve',
       method: 'POST',
       data: formData,
       header: { 'Content-Type': 'application/json' },

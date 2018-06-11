@@ -5,7 +5,7 @@
    <template is="carousel" data="{{ imgUrls }}"></template>
    <view class='container_cont_mi'>
     <image src='../../images/zammc-m.png'></image>
-    <view>汗泥村大酒店<text>营业中</text></view>
+    <view>{{restaurantName}}<text>{{restaurantStatus==1?'营业中':'休息'}}</text></view>
    </view>
  </view>
   <!--公告声明-->
@@ -17,7 +17,6 @@
       </navigator>
     </view>
   </view>
-
   <view class='logo'>
     <view class='big-logo'>
       <block wx:for-items="{{navList}}">
@@ -28,10 +27,10 @@
       </block>
     </view>
   </view>
-  <view class="containermmm">  
+  <!-- <view class="containermmm">  
     <view class="saoma" bindtap="click">点我扫一扫</view>  
     <view class="show">{{show}}</view>  
-  </view>  
+  </view>   -->
   <view class='div'>
    <image src='../../images/share.png'></image>
   </view>

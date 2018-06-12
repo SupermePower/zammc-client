@@ -1,6 +1,6 @@
 var app = getApp()
 var util = require('../../utils/util')
-
+var api = require('../../config/api.js');
 Page({
   data: {
     bookToastHidden: true,
@@ -37,7 +37,7 @@ Page({
     });
     var _this=this;
     wx.request({
-      url: 'http://localhost:8080/order-foods/restaurant/queryRestaurantProperty',
+      url: api.queryRestaurantProperty,
       method: 'POST',
       header: { 'Content-Type': 'application/json' },
       success: function (res) {

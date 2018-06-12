@@ -2,7 +2,7 @@
 
 // 获取全局应用程序实例对象
 var app = getApp();
-
+var api = require('../../config/api.js');
 // 创建页面实例对象
 Page({
   /**
@@ -146,7 +146,7 @@ Page({
           success: function (res) {
             console("用户信息------>" + res.userInfo);
             wx.request({
-              url: 'http://localhost:8080/order-foods/user/addUser',
+              url: api.addUser,
               header: {
                 "Content-Type": "application/json"
               },
@@ -162,7 +162,7 @@ Page({
     })
 
     wx.request({
-      url: 'http://localhost:8080/order-foods/home/queryHomePage',
+      url:api.queryHomePage,
       header: {
         "Content-Type": "application/json"
       },

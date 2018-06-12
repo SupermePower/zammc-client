@@ -2,7 +2,7 @@
 
 // 获取全局应用程序实例对象
 var app = getApp();
-
+var api = require('../../config/api.js');
 // 创建页面实例对象
 Page({
   /**
@@ -46,7 +46,7 @@ Page({
     var that = this;
     var user = wx.getStorageSync('user') || {};
     wx.request({
-      url: 'http://localhost:8080/order-foods/account/queryUserAccount',
+      url: api.queryUserAccount,
       header: {
         "Content-Type": "application/json"
       },

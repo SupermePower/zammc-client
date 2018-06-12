@@ -2,7 +2,7 @@
 
 // 获取全局应用程序实例对象
 // const app = getApp()
-
+var api = require('../../config/api.js');
 // 创建页面实例对象
 Page({
   /**
@@ -33,7 +33,7 @@ Page({
     }else{
       var _this = this;
       wx.request({
-        url: 'http://localhost:8080/order-foods/coupon/receiveCoupon',
+        url: api.receiveCoupon,
         method: 'POST',
         header: { 'Content-Type': 'application/json' },
         data: {
@@ -76,7 +76,7 @@ Page({
     var _this = this;
     console.log("run")
     wx.request({
-      url: 'http://localhost:8080/order-foods/coupon/queryCouponList',
+      url: api.queryCouponList,
       method: 'POST',
       header: { 'Content-Type': 'application/json' },
       data:{

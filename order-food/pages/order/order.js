@@ -67,7 +67,7 @@ Page({
     var userInfo = wx.getStorageSync('user') || {};
     var userId = userInfo.openid;
     wx.request({
-      url: 'http://localhost:8080/order-foods/order/queryUserOrder',
+      url: 'https://www.sxmbyd.com/order-foods/order/queryUserOrder',
       method: 'POST',
       data : {
         userId : userId

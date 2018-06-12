@@ -33,7 +33,7 @@ Page({
     }else{
       var _this = this;
       wx.request({
-        url: 'http://localhost:8080/order-foods/coupon/receiveCoupon',
+        url: 'https://www.sxmbyd.com/order-foods/coupon/receiveCoupon',
         method: 'POST',
         header: { 'Content-Type': 'application/json' },
         data: {
@@ -76,7 +76,7 @@ Page({
     var _this = this;
     console.log("run")
     wx.request({
-      url: 'http://localhost:8080/order-foods/coupon/queryCouponList',
+      url: 'https://www.sxmbyd.com/order-foods/coupon/queryCouponList',
       method: 'POST',
       header: { 'Content-Type': 'application/json' },
       data:{

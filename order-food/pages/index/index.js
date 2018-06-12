@@ -146,7 +146,7 @@ Page({
           success: function (res) {
             console("用户信息------>" + res.userInfo);
             wx.request({
-              url: 'http://localhost:8080/order-foods/user/addUser',
+              url: 'https://www.sxmbyd.com/order-foods/user/addUser',
               header: {
                 "Content-Type": "application/json"
               },
@@ -162,7 +162,7 @@ Page({
     })
 
     wx.request({
-      url: 'http://localhost:8080/order-foods/home/queryHomePage',
+      url: 'https://www.sxmbyd.com/order-foods/home/queryHomePage',
       header: {
         "Content-Type": "application/json"
       },

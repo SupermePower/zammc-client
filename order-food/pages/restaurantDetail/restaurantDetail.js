@@ -37,7 +37,7 @@ Page({
     });
     var _this=this;
     wx.request({
-      url: 'http://localhost:8080/order-foods/restaurant/queryRestaurantProperty',
+      url: 'https://www.sxmbyd.com/order-foods/restaurant/queryRestaurantProperty',
       method: 'POST',
       header: { 'Content-Type': 'application/json' },
       success: function (res) {

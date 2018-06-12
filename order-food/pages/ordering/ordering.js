@@ -2,7 +2,7 @@
 
 // 获取全局应用程序实例对象
 // const app = getApp()
-
+var api = require('../../config/api.js');
 // 创建页面实例对象
 Page({
   /**
@@ -90,13 +90,16 @@ Page({
       msgArrys.unshift(shopCar[key]);
     });
     console.log(msgArrys)
-
+    var userInfo = wx.getStorageSync('userInfo') || {};
+    var userId = userInfo.openid;
+    console.log(userInfo);
+    console.log(userId);
     wx.request({
-      url: 'http://localhost:8080/order-foods/order/placeOrder',
+      url: api.placeOrder,
       method: 'POST',
       header: { 'Content-Type': 'application/json' },
       data: {          //参数为json格式数据
-        userId:1,
+        userId: userId,
         goodMsg: msgArrys,
         allCount: chooseGoods.allCount,
         allMoney: chooseGoods.money
@@ -308,7 +311,7 @@ Page({
     wx.setStorageSync('goodsId', id)
     var _this=this;
     wx.request({
-      url: 'http://localhost:8080/order-foods/dish/goodsType',
+      url: api.goodsType,
       method: 'POST',
       data:{
         goodsId:id
@@ -414,11 +417,13 @@ Page({
     // TODO: onLoad
     // 改变标题栏文字
     var _this=this;
+    console.log("-----------onLoad run");
     wx.request({
-      url: 'http://localhost:8080/order-foods/dish/dishList',
+      url: api.dishList,
       method: 'POST',
       header: { 'Content-Type': 'application/json' },
       success: function (res) {
+        console.log(res);
         if (res.data.dealCode == 200) {
           _this.setData({
             menuList: res.data.dealResult.dishList,

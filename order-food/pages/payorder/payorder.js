@@ -2,7 +2,7 @@
 
 // 获取全局应用程序实例对象
 // const app = getApp()
-
+var api = require('../../config/api.js');
 // 创建页面实例对象
 Page({
   /**
@@ -39,6 +39,7 @@ Page({
    * 支付货款
    */
   payMoney: function payMoney() {
+    console.log("微信支付");
     // todo 付款流程
     // wx.requestPayment({
     //   'timeStamp': '',
@@ -51,6 +52,26 @@ Page({
     //   'fail':function(res){
     //   }
     // })
+  },
+  /**
+  * 现金支付
+  */
+  payMoney2: function payMoney2() {
+    console.log("现金支付");
+    wx.showModal({
+      title: "现金支付",
+      content: "请到前台支付",
+      success: function (res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+          wx.switchTab({
+            url: '../index/index',
+          })
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
   },
 
   /**
@@ -111,6 +132,23 @@ Page({
    */
   onPullDownRefresh: function onPullDownRefresh() {
     // TODO: onPullDownRefresh
+  },
+  confirm: function (title, content) {
+    wx.showModal({
+      title: title,
+      content: content,
+      success: function (res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+          return true;
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+          return false;
+        }
+      }
+    })
   }
+
 });
+
 //# sourceMappingURL=payorder.js.map

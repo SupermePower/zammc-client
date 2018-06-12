@@ -2,7 +2,7 @@
 
 // 获取全局应用程序实例对象
 // const app = getApp()
-
+var api = require('../../config/api.js');
 // 创建页面实例对象
 Page({
   /**
@@ -33,7 +33,11 @@ Page({
     }else{
       var _this = this;
       wx.request({
+<<<<<<< HEAD
         url: 'https://www.sxmbyd.com/order-foods/coupon/receiveCoupon',
+=======
+        url: api.receiveCoupon,
+>>>>>>> cf3fc1d79f5986ad4f3f3d9f73b7777b9ce20ac7
         method: 'POST',
         header: { 'Content-Type': 'application/json' },
         data: {
@@ -76,7 +80,11 @@ Page({
     var _this = this;
     console.log("run")
     wx.request({
+<<<<<<< HEAD
       url: 'https://www.sxmbyd.com/order-foods/coupon/queryCouponList',
+=======
+      url: api.queryCouponList,
+>>>>>>> cf3fc1d79f5986ad4f3f3d9f73b7777b9ce20ac7
       method: 'POST',
       header: { 'Content-Type': 'application/json' },
       data:{

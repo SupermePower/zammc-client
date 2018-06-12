@@ -2,7 +2,7 @@
 
 // 获取全局应用程序实例对象
 var app = getApp();
-
+var api = require('../../config/api.js');
 // 创建页面实例对象
 Page({
   /**
@@ -146,7 +146,11 @@ Page({
           success: function (res) {
             console("用户信息------>" + res.userInfo);
             wx.request({
+<<<<<<< HEAD
               url: 'https://www.sxmbyd.com/order-foods/user/addUser',
+=======
+              url: api.addUser,
+>>>>>>> cf3fc1d79f5986ad4f3f3d9f73b7777b9ce20ac7
               header: {
                 "Content-Type": "application/json"
               },
@@ -162,7 +166,11 @@ Page({
     })
 
     wx.request({
+<<<<<<< HEAD
       url: 'https://www.sxmbyd.com/order-foods/home/queryHomePage',
+=======
+      url:api.queryHomePage,
+>>>>>>> cf3fc1d79f5986ad4f3f3d9f73b7777b9ce20ac7
       header: {
         "Content-Type": "application/json"
       },

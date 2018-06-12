@@ -2,7 +2,7 @@
 
 // 获取全局应用程序实例对象
 // const app = getApp()
-
+var api = require('../../config/api.js');
 // 创建页面实例对象
 Page({
   /**
@@ -67,7 +67,11 @@ Page({
     var userInfo = wx.getStorageSync('user') || {};
     var userId = userInfo.openid;
     wx.request({
+<<<<<<< HEAD
       url: 'https://www.sxmbyd.com/order-foods/order/queryUserOrder',
+=======
+      url: api.queryUserOrder,
+>>>>>>> cf3fc1d79f5986ad4f3f3d9f73b7777b9ce20ac7
       method: 'POST',
       data : {
         userId : userId

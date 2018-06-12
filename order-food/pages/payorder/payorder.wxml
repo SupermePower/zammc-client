@@ -29,5 +29,6 @@
     </view>
   </view>
   <view class="tip">实付金额以买单时为准</view>
-  <view bindtap="payMoney" class="start-pay">去付款</view>
+  <view bindtap="payMoney" class="start-pay">微信支付</view>
+  <view bindtap="payMoney2" class="start-pay2">现金支付</view>
 </view>

@@ -100,7 +100,17 @@ page {
 }
 .start-pay {
   position: fixed;
-  bottom: 0;
+  bottom: 100rpx;
+  width: 93%;
+  line-height: 70rpx;
+  text-align: center;
+  color: #fff;
+  border-radius: 10rpx;
+  background-color: #0aba07; 
+}
+.start-pay2 {
+  position: fixed;
+  bottom: 10rpx;
   width: 93%;
   line-height: 70rpx;
   text-align: center;

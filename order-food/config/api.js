@@ -12,6 +12,5 @@ module.exports = {
   goodsType: baseUrl + '/dish/goodsType',
   dishList: baseUrl + '/dish/dishList',
   queryRestaurantProperty: baseUrl + '/restaurant/queryRestaurantProperty',
-  queryUserAccount: baseUrl + '/account/queryUserAccount',
-  
+  queryUserAccount: baseUrl + '/account/queryUserAccount'
 };

@@ -5,8 +5,8 @@
 <view class="o-top-mainLisy">
     <view class='o-top-main displayFlex'>
     <view class='o-top-main-left displayFlex'>
-        <image class="o-top-img" src="{{ restaurant.img }}"></image>
-        <view class='text'>{{ restaurant.name }}</view>
+        <image class="o-top-img" src="{{ restaurantImg }}"></image>
+        <view class='text'>{{ restaurantName }}</view>
     </view>
    
     <view class='o-top-main-right'>

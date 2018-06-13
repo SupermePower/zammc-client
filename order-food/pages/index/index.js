@@ -163,8 +163,7 @@ Page({
     })
 
     wx.request({
-      url: 'https://www.sxmbyd.com/order-foods/home/queryHomePage',
-     // url:api.queryHomePage,
+      url:api.queryHomePage,
       header: {
         "Content-Type": "application/json"
       },

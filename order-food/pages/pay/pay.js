@@ -10,27 +10,42 @@ Page({
    */
   data: {
     title: 'pay',
-    bookToastHidden: true,
-    restaurant: {
-      img: 'https://order-foods-img-1256105536.cos.ap-chengdu.myqcloud.com/金掌勺店面图.png',
-      name: '金掌勺',
-      id: 'remaid'
-    }
+    bookToastHidden: true
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function onLoad() {
+    var that = this;
+    wx.request({
+      url: 'https://www.sxmbyd.com/order-foods/restaurant/queryRestaurant',
+      // url:api.queryHomePage,
+      header: {
+        "Content-Type": "application/json"
+      },
+      method: 'POST',
+      success: function (res) {
+        if (res.data.dealCode == 200) {
+          that.setData({
+            restaurantImg: res.data.dealResult.restaurantImg,
+            restaurantName: res.data.dealResult.restaurantName
+          });
+        }
+      },
+      fail: function () {
+        wx.showToast({
+          title: '失败',
+          icon: 'fail',
+          duration: 1000
+        });
+      }
+    });
     // TODO: onLoad
     // 改变标题栏文字
     // 由跳转链接设置标题
-    var operation = params.operation;
     // 设置operation
-    this.setData({
-      operation: params.operation
-    });
-    operation = '付款';
+    var operation = '付款';
     // 设置导航栏标题
     wx.setNavigationBarTitle({
       title: operation
@@ -51,7 +66,6 @@ Page({
    */
   onReady: function onReady() {
     // TODO: onReady
-    this.setNeedDistance();
   },
 
 

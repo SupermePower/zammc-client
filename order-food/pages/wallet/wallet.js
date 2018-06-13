@@ -72,6 +72,10 @@ Page({
         });
       }
     })
+    // 设置导航栏标题
+    wx.setNavigationBarTitle({
+      title: '我的钱包'
+    });
   },
 
 

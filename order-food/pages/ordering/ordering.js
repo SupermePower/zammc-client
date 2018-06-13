@@ -434,6 +434,10 @@ Page({
       }
     })
     this.setNavigatorText();
+    // 设置导航栏标题
+    wx.setNavigationBarTitle({
+      title: '点餐'
+    });
   },
 
 

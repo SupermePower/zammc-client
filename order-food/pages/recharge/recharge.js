@@ -129,6 +129,10 @@ Page({
         });
       }
     })
+    // 设置导航栏标题
+    wx.setNavigationBarTitle({
+      title: '充值'
+    });
   },
   onReady: function () {
     // 页面渲染完成

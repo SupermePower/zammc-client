@@ -46,11 +46,8 @@ Page({
     var that = this;
     var user = wx.getStorageSync('user') || {};
     wx.request({
-<<<<<<< HEAD
       url: 'https://www.sxmbyd.com/order-foods/account/queryUserAccount',
-=======
       url: api.queryUserAccount,
->>>>>>> cf3fc1d79f5986ad4f3f3d9f73b7777b9ce20ac7
       header: {
         "Content-Type": "application/json"
       },

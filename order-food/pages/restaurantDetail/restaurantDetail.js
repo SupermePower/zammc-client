@@ -48,6 +48,9 @@ Page({
           });
         }
       }
-    })
+    });
+    wx.setNavigationBarTitle({
+      title: '店铺详情'
+    });
   }
 })

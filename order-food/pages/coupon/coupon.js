@@ -75,7 +75,6 @@ Page({
     // 改变标题栏文字
     //this.setNavigatorText();
     var _this = this;
-    console.log("run")
     wx.request({
       url: 'https://www.sxmbyd.com/order-foods/coupon/queryCouponList',
       url: api.queryCouponList,
@@ -92,8 +91,10 @@ Page({
           });
         }
       }
-    })
-
+    });
+    wx.setNavigationBarTitle({
+      title: '优惠券'
+    });
 
   },
 

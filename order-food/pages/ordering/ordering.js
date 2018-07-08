@@ -309,6 +309,7 @@ Page({
    */
   chooseType:function(id){
     wx.setStorageSync('goodsId', id)
+    console.log("goodsId----->" + id);
     var _this=this;
     wx.request({
       url: api.goodsType,

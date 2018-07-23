@@ -36,7 +36,6 @@ Page({
   recharge: function recharge(e) {
     var user = wx.getStorageSync('user') || {};
     var userId = user.openid;
-    console.log('-------->' + userId);
     if (userId == '' || userId == 'undefined') {
       wx.showToast({
         title: '请先授权',
@@ -70,7 +69,7 @@ Page({
       }
     }
     wx.request({
-      url: 'https://www.sxmbyd.com/order-foods/recharge/recharge',
+      url: 'http://localhost:8080/order-foods/recharge/recharge',
         header: {
           "Content-Type": "application/json"
         },

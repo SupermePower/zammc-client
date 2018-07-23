@@ -90,10 +90,9 @@ Page({
       msgArrys.unshift(shopCar[key]);
     });
     console.log(msgArrys)
-    var userInfo = wx.getStorageSync('userInfo') || {};
+    var userInfo = wx.getStorageSync('user') || {};
     var userId = userInfo.openid;
-    console.log(userInfo);
-    console.log(userId);
+    console.log("点餐人的openid------>",userId);
     wx.request({
       url: api.placeOrder,
       method: 'POST',

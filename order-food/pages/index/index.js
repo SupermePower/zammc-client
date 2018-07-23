@@ -139,31 +139,26 @@ Page({
    */
   onLoad: function onLoad() {
     var that = this;
-    wx.getSetting({
+    wx.getUserInfo({
       success: function (res) {
-        // 已经授权，可以直接调用 getUserInfo 获取头像昵称
-        wx.getUserInfo({
+        console("用户信息------>" + res.userInfo);
+        wx.request({
+          url: 'https://www.sxmbyd.com/order-foods/user/addUser',
+          url: api.addUser,
+          header: {
+            "Content-Type": "application/json"
+          },
+          data: userInformation,
+          method: 'POST',
           success: function (res) {
-            console("用户信息------>" + res.userInfo);
-            wx.request({
-              url: 'https://www.sxmbyd.com/order-foods/user/addUser',
-              url: api.addUser,
-              header: {
-                "Content-Type": "application/json"
-              },
-              data: userInformation,
-              method: 'POST',
-              success: function (res) {
-                console.log("新增注册用户信息--------->" + res);
-              }
-            });
+            console.log("新增注册用户信息--------->" + res);
           }
-        })
+        });
       }
     })
 
     wx.request({
-      url:api.queryHomePage,
+      url: api.queryHomePage,
       header: {
         "Content-Type": "application/json"
       },

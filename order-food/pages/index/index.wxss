@@ -96,6 +96,15 @@
   bottom: 44rpx;
   right: 20rpx;
 }
+.shareBtn{
+  width: 70rpx;
+  height: 70rpx;
+  position: fixed;
+  bottom: 44rpx;
+  right: 20rpx;
+  outline:none;
+  border: none;
+}
 .div image{
   width: 100%;
   height: 100%;

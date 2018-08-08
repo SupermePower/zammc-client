@@ -10,7 +10,9 @@ Page({
    */
   data: {
     title: 'pay',
-    bookToastHidden: true
+    bookToastHidden: true,
+    hiddenName: false,
+    isForbidden: true
   },
 
   /**
@@ -40,6 +42,7 @@ Page({
           duration: 1000
         });
       }
+
     });
     // TODO: onLoad
     // 改变标题栏文字
@@ -51,9 +54,38 @@ Page({
       title: operation
     });
   },
+  clickMe: function (e) {
+    this.setData({
+      hiddenName: !this.data.hiddenName
+    })
+  },
+  clickbg: function () {
+    this.setData({
+      hiddenName: false
+    })
+  },
   bindToastTap: function () {
     this.setData({
       bookToastHidden: false
+    })
+  },
+  // clickInput:function(e){
+  //   var inputData = e.detail.value;
+  //   if (inputData.length>0){
+  //     this.setData({
+  //       isForbidden: true
+  //     })
+  //   }
+  // },
+  focus: function (e) {
+    this.setData({
+      isForbidden: false
+    })
+  },
+  /* 文本框失焦时更改状态*/
+  blur: function (e) {
+    this.setData({
+      isForbidden: true
     })
   },
   hideToast: function () {

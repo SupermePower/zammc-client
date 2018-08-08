@@ -220,7 +220,45 @@ Page({
       }
     })
   },
+  // 分享
+  onShareAppMessage: function () {
+    var user = getApp().globalData.userInfo;
+    return {
+      title: '最爱妈妈菜',
+      path: '/pages/index/index?id=' + user.id,
+      // 分享成功
+      success: function (res) {
+        wx.request({
+          url: app.d.hostUrl + '/api/user/share',
+          method: 'get',
+          data: {},
+          header: app.getHeader(),
+          success: function (res) {
+          },
+          fail: function (e) {
+            app.toast('网络异常！');
+          },
+        })
+      },
+      // 分享失败
+      fail: function (res) {
+        wx.request({
+          url: app.d.hostUrl + '/api/user/share',
+          method: 'get',
+          data: {
 
+          },
+          header: app.getHeader(),
+          success: function (res) {
+
+          },
+          fail: function (e) {
+            app.toast('网络异常！');
+          },
+        })
+      }
+    }
+  },
 
 
 

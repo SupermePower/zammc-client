@@ -8,19 +8,17 @@
         <image class="o-top-img" src="{{ restaurantImg }}"></image>
         <view class='text'>{{ restaurantName }}</view>
     </view>
-   
     <view class='o-top-main-right'>
-        <image class="main-right-img" src="../../images/fkm.png"></image>
+        <image  bindtap='clickMe' class="main-right-img" src="../../images/fkm.png"></image>
         <view class='textcode'>收款码</view>
     </view>
      </view>
   </view>
 </view>
-
   <view class='form-price'>
     <view class='form_group displayFlex'>
       <text>消费总金额(元)</text>
-      <input type='text' name="name" placeholder='询问服务员后输入' ></input>
+      <input type='text' name="name" placeholder='询问服务员后输入' bindfocus="focus"  bindblur='blur'></input>
     </view>
     <view class="tishi">
       <image class="add" src="../../images/douding.jpg"></image>
@@ -29,7 +27,7 @@
     <view class='tishi_input hide'>
       <view class='form_group displayFlex'>
       <text>不参与优惠金额(元)</text>
-      <input type='text' name="name" placeholder='询问服务员后输入' ></input>
+      <input type='text' name="name" placeholder='询问服务员后输'></input>
     </view>
     </view>
   </view>
@@ -38,7 +36,7 @@
   </view>
   </view>
 <view>
-  <button class="ar_book" bindtap="bindToastTap">立即支付</button>
+  <button bindtap="bindToastTap" class='ar_book {{isForbidden ? "ar_book":"proceed-btn-grey"}}'>立即支付</button>
   <toast hidden="{{bookToastHidden}}" bindchange="hideToast">支付成功</toast>
   <view class='ar_select displayFlex'>
       <view class='ar_select_li'>
@@ -53,5 +51,14 @@
         <view><image src='../../images/youhui.jpg'></image></view>
          <text>尽享优惠</text>
       </view>
+  </view>
+</view>
+<view class='codema' hidden="{{!hiddenName}}" bindtap='clickbg'>
+  <view class='codecen'>
+    <view class='codelis'>
+      <view class='codela'>
+      
+      </view>
+    </view>
   </view>
 </view>

@@ -11,7 +11,7 @@ Page({
   data: {
     title: 'payorder',
     order: {
-      restaurant: '金掌勺',
+      restaurant: '',
       count: 5,
       number: '20170326122',
       time: '2017/3/26 13:23:02',

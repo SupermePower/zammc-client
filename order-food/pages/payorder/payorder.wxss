@@ -118,3 +118,47 @@ page {
   border-radius: 10rpx;
   background-color: #f00;
 }
+
+.backgrout-bj{
+    flex-wrap: wrap;
+}
+.backgrout-bj .header{
+    display: block;
+    font-size: 14px;
+    text-align: center;
+    color: orange;
+    padding: 10px;
+    width: 100%;
+}
+.model-list{
+  border-bottom: 1px solid lightgrey;
+  display: flex;
+  align-items: center;
+}
+ 
+.middle-img{
+  padding: 10px;
+  width: 45px;
+  height: 45px;
+  display: block;
+  flex: 1;
+  overflow: hidden;
+}
+.middle-title{
+  margin: 10px;
+  display: block;
+}
+.middle-sub{
+  font-size: 14px;
+  color: lightgray;
+  margin-top: 10px;
+}
+ 
+.seletedImage{
+  width: 20px;
+  height: 20px;
+}
+
+.paySize{
+    font-size: 14px;
+}

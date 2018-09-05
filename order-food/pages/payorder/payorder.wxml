@@ -29,6 +29,27 @@
     </view>
   </view>
   <view class="tip">实付金额以买单时为准</view>
-  <view bindtap="payMoney" class="start-pay">微信支付</view>
-  <view bindtap="payMoney2" class="start-pay2">现金支付</view>
+  <view bindtap="payOrder" class="start-pay2">去支付</view>
+<span style="color:#333333;"><view class="backgrout-bj">
+    <view class="header">
+        请选择支付方式
+    </view>
+    <view>
+        <block wx:for="{{model}}">
+             <view class="model-list" bindtap="selectClick" id="{{index}}">
+                 <view>
+                    <image class="middle-img" src="{{item.image}}"></image>
+                </view>
+                 <view class="middle-title">
+                 	<view><text class='paySize'>{{item.title}}</text></view>
+                      <!-- <view class="middle-sub"><text>{{item.sub_title}}</text></view>-->
+                  </view>
+                  <view style='float:left;'  wx:if="{{item.selectImage==true}}">
+                    <image src="../../images/xuanze.png" class="seletedImage"></image>
+                  </view>
+            </view>
+         
+        </block>
+    </view>
+</view></span>
 </view>

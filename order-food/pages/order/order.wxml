@@ -35,7 +35,7 @@
         </view>
         <view class="go-pay-bottom">
           <text>￥{{ item.money }}</text>
-          <view class="go-pay-btn">去支付</view>
+          <view class="go-pay-btn">待支付</view>
         </view>
       </view>
       <view class="go-finish" wx:for="{{ orderList.finish }}">

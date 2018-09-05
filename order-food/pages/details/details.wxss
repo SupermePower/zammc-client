@@ -1,0 +1,96 @@
+/* pages/details/details.wxss */
+page{
+  background: #eee;
+}
+.details{
+  width: 90%;
+  margin: 0 auto;
+}
+.title{
+  line-height: 30px;
+  font-size: 14px;
+  margin-top: 10px;
+}
+.number{
+  line-height: 18px;
+  font-size: 10px;
+}
+.details_main{
+margin-top: 10px;
+}
+.details_main_tal{
+  width: 100%;
+  height: 4px;
+  background: #ccc;
+  border-radius: 5px;
+}
+
+
+.table {
+  width: 95%;
+  margin: 0 auto;
+  background: #fff;
+}
+.table_header{
+  height: 40px;
+  display:flex;
+}
+.th{
+  width:33.3%;
+  color: #ccc;
+  line-height: 40px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+.block_deatils,.bg-w{
+  display: flex;
+}
+.td{
+  width:33.3%;
+  color: #ccc;
+  line-height: 40px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+.bg-w{
+   justify-content:space-between;
+}
+.ts{
+ color: #000;
+  width:33.3%;
+  line-height: 40px;
+  text-align: center;
+}
+
+
+.details_button{
+  position: fixed;
+  width: 100%;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+}
+.radio-group {
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+}
+.radio-group:last-child{
+  border-bottom:none;
+}
+.radio {
+    border-top: 1px solid #ddd;
+    padding: 5px;
+    display:flex;
+    justify-content:space-between;
+}
+.mitbtn{
+  width: 90%;
+  height: 40px;
+  margin: 0 auto;
+  margin-top: 20px;
+  background: #00bab7;
+  color: #fff;
+  font-size: 16px;
+}

@@ -1,0 +1,41 @@
+<!--pages/details/details.wxml-->
+<view class='details'>
+<view class='title'>最爱妈妈菜</view>
+<view class='number'>已点1个菜</view>
+<view class='details_main'>
+<view class='details_main_tal'></view>
+    <view class="table">
+       <view class='table_header'>
+          <view class="th">菜品</view>
+          <view class="th">数量</view>
+          <view class="th ">金额</view>
+       </view>
+       <block >
+        <view class='block_deatils'>
+          <view class="td">000</view>
+          <view class="td">000</view>
+          <view class="td">000</view>
+        </view>
+        <view class="bg-w">
+        <view class="ts">总价</view>
+        <view class="ts">36</view>
+      </view>
+      </block>
+    </view>
+    </view>
+
+
+
+
+
+</view>
+<view class='details_button'>
+<radio-group class="radio-group" bindchange="radioChange">
+  <label class="radio" wx:for="{{items}}">
+    <text>{{item.value}}</text>
+    <radio value="{{item.name}}" checked="{{item.checked}}" bindtap="zhifu"/>
+  </label>
+</radio-group>
+<button class='mitbtn'>提交订单</button>
+</view>
+

@@ -10,35 +10,33 @@ Page({
    */
   data: {
     title: 'payorder',
+    payWay: "",
     order: {
-      restaurant: '',
+      restaurant: '最爱妈妈菜',
       count: 5,
       number: '20170326122',
-      time: '2017/3/26 13:23:02',
-      goods: [{
-        name: '锅包肉',
-        count: 1,
-        money: '23.00'
-      }, {
-        name: '杀猪菜',
-        count: 1,
-        money: '23.00'
-      }, {
-        name: '西红柿鸡蛋汤',
-        count: 1,
-        money: '23.00'
-      }, {
-        name: '米饭',
-        count: 3,
-        money: '23.00'
-      }],
-      allMoney: '118.00'
-    }
+      goods: [],
+      allMoney: ''
+    },
+    model: [
+      {
+        image: '../../images/xianjinzhifu.png',
+        title: '现金支付',
+        sub_title: '前台付款，与服务员确认',
+        selectImage: false
+      },
+      {
+        image: '../../images/zaixianzhifu.png',
+        title: '在线支付',
+        sub_title: '使用微信，在线付款',
+        selectImage: true
+      }
+    ]
   },
   /**
    * 支付货款
    */
-  payMoney: function payMoney() {
+  payMoneyWX: function payMoneyWX() {
     console.log("微信支付");
     // todo 付款流程
     // wx.requestPayment({
@@ -56,7 +54,7 @@ Page({
   /**
   * 现金支付
   */
-  payMoney2: function payMoney2() {
+  payMoneyRMB: function payMoneyRMB() {
     console.log("现金支付");
     wx.showModal({
       title: "现金支付",
@@ -73,12 +71,45 @@ Page({
       }
     })
   },
-
+  payOrder: function payOrder() {
+    var payWay = this.payWay;
+    console.log("您选择的支付方式->" + payWay)
+    if (payWay == 0) {
+      console.log("微信支付");
+    } else if (payWay == 1) {
+      console.log("现金支付");
+    } else {
+      return wx.showToast({
+        title: '请选择支付方式',
+        icon: 'success',
+        mask: true
+      });
+    }
+  },
+  /**
+   * 选择支付方式
+   */
+  selectClick: function (event) {
+    for (var i = 0; i < this.data.model.length; i++) {
+      if (event.currentTarget.id == i) {
+        this.data.model[i].selectImage = true;
+        this.payWay = 0;
+      } else {
+        this.payWay = 1;
+        this.data.model[i].selectImage = false
+      }
+    }
+    this.setData(this.data)
+  },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function onLoad() {
+  onLoad: function onLoad(data) {
     // TODO: onLoad
+    var that = this;
+    this.payWay = '0';
+    console.log("orderId--------", data.orderId);
+    console.log("payWay", that.payWay);
   },
 
 
@@ -89,15 +120,15 @@ Page({
 
     // wx.setStorageSync('chooseGoods', this.data.chooseGoods);
     //wx.setStorageSync('shopCar', this.data.shopCar);
-    var _this=this;
-    var choseGoods=wx.getStorageSync('chooseGoods');
-    var shopCar=wx.getStorageSync('shopCar');
+    var _this = this;
+    var choseGoods = wx.getStorageSync('chooseGoods');
+    var shopCar = wx.getStorageSync('shopCar');
     console.log(choseGoods);
     console.log(shopCar);
     _this.setData({
       allMoney: choseGoods.money,
       allCount: choseGoods.allCount,
-      shopCar:shopCar
+      shopCar: shopCar
     })
     // TODO: onReady
   },

@@ -1,5 +1,5 @@
 .o-top {
-  height: 181rpx;
+  height: 235rpx;
   box-sizing: border-box;
   border-bottom: 1rpx solid #e5e5e5;
   padding: 33rpx 20rpx 20rpx;

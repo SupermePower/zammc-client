@@ -66,6 +66,7 @@ Page({
     operation = '我的订单';
     var userInfo = wx.getStorageSync('user') || {};
     var userId = userInfo.openid;
+    console.log("用户订单---------------用户主键"+userId);
     wx.request({
       url: 'https://www.sxmbyd.com/order-foods/order/queryUserOrder',
       url: api.queryUserOrder,

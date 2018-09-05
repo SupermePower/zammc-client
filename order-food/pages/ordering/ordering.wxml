@@ -2,12 +2,7 @@
 <view class="ordering">
   <!--餐馆顶部-->
   <view class="o-top">
-    <image class="o-top-img" src="{{ restaurant.img }}"></image>
-    <view class="o-top-name">
-      {{ restaurant.name }}
-      <text>{{ restaurant.status }}</text>
-    </view>
-    <!--<view class="o-top-number">立即排号</view>-->
+    <image style='width:100%;height:181rpx;' src="{{ restaurant.img }}"></image>
   </view>
   <view>
     <swiper class="swiper_container" vertical="true" autoplay="true" circular="true" interval="2000">
@@ -57,7 +52,7 @@
               <image src="{{ item.goodsImg }}"></image>
               <view class="menu0-r-g">
                 <view>{{ item.goodsName }}</view>
-                <view>月售 {{ item.goodsId }} 好评 {{ item.goodsMsg }}</view>
+                <view>月售 {{ item.goodsId }}</view>
                 <view class="menu0-r-price">
                   ￥ {{ item.goodsPrice }} 元
                 </view>

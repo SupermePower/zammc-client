@@ -13,7 +13,8 @@
     "pages/order/order",
     "pages/restaurantDetail/restaurantDetail",
     "pages/wallet/wallet",
-    "pages/coupon/coupon"
+    "pages/coupon/coupon",
+    "pages/details/details"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ed4d30",
@@ -49,7 +50,7 @@
       },
       {
         "text": "我的",
-        "pagePath": "pages/user/user",
+        "pagePath": "pages/user/user",      
         "iconPath": "images/my2.png",
         "selectedIconPath": "images/my1.png"
       }

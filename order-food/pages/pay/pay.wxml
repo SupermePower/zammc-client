@@ -57,7 +57,7 @@
   <view class='codecen'>
     <view class='codelis'>
       <view class='codela'>
-      
+         <image src="../../images/code.png"></image>
       </view>
     </view>
   </view>

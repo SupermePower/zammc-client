@@ -138,25 +138,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function onLoad() {
+    console.log("当前用户信息-----" + app.data.userInfo);
     var that = this;
-    wx.getUserInfo({
-      success: function (res) {
-        console("用户信息------>" + res.userInfo);
-        wx.request({
-          url: 'https://www.sxmbyd.com/order-foods/user/addUser',
-          url: api.addUser,
-          header: {
-            "Content-Type": "application/json"
-          },
-          data: userInformation,
-          method: 'POST',
-          success: function (res) {
-            console.log("新增注册用户信息--------->" + res);
-          }
-        });
-      }
-    })
-
     wx.request({
       url: api.queryHomePage,
       header: {
@@ -260,10 +243,6 @@ Page({
     }
   },
 
-
-
-
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -298,11 +277,5 @@ Page({
   onPullDownRefresh: function onPullDownRefresh() {
     console.log(' ---------- onPullDownRefresh ----------');
   }
-
-
-
-
-
-
 });
 //# sourceMappingURL=index.js.map

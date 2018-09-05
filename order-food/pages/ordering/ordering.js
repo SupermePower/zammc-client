@@ -11,32 +11,6 @@ Page({
   data: {
     sizeIndex: 0,
     title: 'ordering',
-    // notice: [{
-    //   imgUrl: '../../images/reduce.png',
-    //   notice: '满100减5，满200减15，满300减15'
-    // }, {
-    //   imgUrl: '../../images/new.png',
-    //   notice: '新用户下单立减10元'
-    // }, {
-    //   imgUrl: '../../images/msg.png',
-    //   notice: '凡劳动节当天到店均有好礼相送'
-    // }],
-    // restaurant: {
-    //   img: 'https://order-foods-img-1256105536.cos.ap-chengdu.myqcloud.com/金掌勺店面图.png',
-    //   name: '金掌勺',
-    //   id: 'remaid',
-    //   address: '汇德商业大厦501',
-    //   tel: '010-88888888',
-    //   status: '满桌',
-    //   grade: 'four-star',
-    //   gradeNumber: '4.8',
-    //   coupon: {
-    //     id: 'code123123',
-    //     delmoney: 10,
-    //     condition: 100,
-    //     time: '2017-12-12'
-    //   }
-    // },
     //是否展示弹框
     showModalStatus: false,
     // 当前的tab
@@ -54,22 +28,22 @@ Page({
     chooseGoods: {
       // 饭店id
       restaurant_id: 'renmaid',
-      
-       // 选择的商品数量
+
+      // 选择的商品数量
       goods: {},
       // 总金额
       money: 0,
       // 总数
       allCount: 0
     },
-    sizeIndex:{},
-    shopCar:{},
-    goodsItem:{
-      id:0,
-      num:0,
-      name:"",
-      price:0,
-      memo:""
+    sizeIndex: {},
+    shopCar: {},
+    goodsItem: {
+      id: 0,
+      num: 0,
+      name: "",
+      price: 0,
+      memo: ""
     },
   },
   /**
@@ -84,31 +58,31 @@ Page({
       });
     }
     var chooseGoods = this.data.chooseGoods;
-    var shopCar=this.data.shopCar;
-    var msgArrys=new Array();
+    var shopCar = this.data.shopCar;
+    var msgArrys = new Array();
     Object.keys(shopCar).forEach(function (key) {
       msgArrys.unshift(shopCar[key]);
     });
     console.log(msgArrys)
     var userInfo = wx.getStorageSync('user') || {};
     var userId = userInfo.openid;
-    console.log("点餐人的openid------>",userId);
+    console.log("点餐人的openid------>", userId);
     wx.request({
       url: api.placeOrder,
       method: 'POST',
       header: { 'Content-Type': 'application/json' },
       data: {          //参数为json格式数据
-        userId: userId,
+        userId: '1',
         goodMsg: msgArrys,
         allCount: chooseGoods.allCount,
         allMoney: chooseGoods.money
       },
       success: function (res) {
         if (res.data.dealCode == 200) {
-           // todo 提交订单信息，然后去到确认页面
+          // todo 提交订单信息，然后去到确认页面
           wx.navigateTo({
-            url: '../payorder/payorder?operation=checkOrder'
-          }); 
+            url: '../payorder/payorder?operation=checkOrder&orderId=' + res.data.dealResult.orderId
+          });
         }
       }
     })
@@ -156,7 +130,6 @@ Page({
    * @param e
    */
   choose: function choose(e) {
-    // console.log(e)
     this.setData({
       currentmenu: e.currentTarget.dataset.tab
     });
@@ -202,18 +175,18 @@ Page({
         confirmText: '我知道了'
       });
     }
-    if(goodsType==1){
+    if (goodsType == 1) {
       //声明临时变量存储信息
-      var cache=new Object;
+      var cache = new Object;
       cache.id = goodsId;
       cache.price = goodsPrice;
       cache.name = goodsName;
       cache.num = 1;
-      cache.memo='';
+      cache.memo = '';
       console.log(cache)
       wx.setStorageSync('cache', cache)
       this.chooseType(goodsId);
-    }else{
+    } else {
       console.log("addorder else run")
       var chooseGoods = this.data.chooseGoods;
       var goods = chooseGoods.goods;
@@ -225,17 +198,17 @@ Page({
       // 已有该商品
       if (count) {
         //购物车操作
-        car[goodsId].num+=1;
+        car[goodsId].num += 1;
         //原有逻辑
         goods[goodsId] = ++count;
-        goods.money+=goodsPrice
+        goods.money += goodsPrice
       } else {
         //购物车操作
-        goodItem.id=goodsId;
-        goodItem.price=goodsPrice;
-        goodItem.name=goodsName;
-        goodItem.num=1
-        car[goodsId]=goodItem;
+        goodItem.id = goodsId;
+        goodItem.price = goodsPrice;
+        goodItem.name = goodsName;
+        goodItem.num = 1
+        car[goodsId] = goodItem;
         //原有逻辑
         goods[goodsId] = 1;
         goods[goodsName] = goodsName;
@@ -246,12 +219,12 @@ Page({
         chooseGoods: chooseGoods
       });
       ++chooseGoods.allCount;
-      var money = chooseGoods.money+goodsPrice; 
+      var money = chooseGoods.money + goodsPrice;
       chooseGoods.money = money;
       // 增加计数
       this.setData({
         chooseGoods: chooseGoods,
-        shopCar:car
+        shopCar: car
       });
       console.log(this.data.shopCar)
       wx.setStorageSync('chooseGoods', this.data.chooseGoods);
@@ -274,18 +247,18 @@ Page({
     var count = goods[goodsId];
 
     var car = this.data.shopCar;
-    car[goodsId].num-=1;
-    if (car[goodsId].num==0){
+    car[goodsId].num -= 1;
+    if (car[goodsId].num == 0) {
       delete car[goodsId]
     }
     goods[goodsId] = --count;
-    goods.money-=goodsPrice
+    goods.money -= goodsPrice
     chooseGoods.goods = goods;
     this.setData({
       chooseGoods: chooseGoods,
-      shopCar:car
+      shopCar: car
     });
-    var money = chooseGoods.money-goodsPrice //this.calculateMoney();
+    var money = chooseGoods.money - goodsPrice //this.calculateMoney();
     chooseGoods.money = money;
     // 减少计数
     --chooseGoods.allCount;
@@ -306,15 +279,15 @@ Page({
   /**
    * 选择规格
    */
-  chooseType:function(id){
+  chooseType: function (id) {
     wx.setStorageSync('goodsId', id)
     console.log("goodsId----->" + id);
-    var _this=this;
+    var _this = this;
     wx.request({
       url: api.goodsType,
       method: 'POST',
-      data:{
-        goodsId:id
+      data: {
+        goodsId: id
       },
       header: { 'Content-Type': 'application/json' },
       success: function (res) {
@@ -331,38 +304,36 @@ Page({
     var goodsId = wx.getStorageSync('goodsId');
     var typeMsg = wx.getStorageSync('typeMsg');
     var cache = wx.getStorageSync('cache');
-    console.log("cache"+cache)
+    console.log("cache" + cache)
     console.log(goodsId);
     var car = this.data.shopCar;
     console.log(car)
-    var item=car[goodsId];
+    var item = car[goodsId];
     console.log(item);
-    if(item==null){
+    if (item == null) {
       cache.memo = typeMsg
-      car[goodsId] =cache;
+      car[goodsId] = cache;
       console.log("if  ----->run");
-    }else{
+    } else {
       //存在 给数量+1
-      item.num+=1;
-      item.memo+="|"+typeMsg
+      item.num += 1;
+      item.memo += "|" + typeMsg
       car[goodsId] = item;
       console.log("else  ----->run");
     }
     console.log(car)
     //构建chooseGoods
-    var chooseGoods=this.data.chooseGoods;
+    var chooseGoods = this.data.chooseGoods;
     var goods = chooseGoods.goods;
-    if (goods[goodsId] == undefined){
-      console.log("ffffffffff");
+    if (goods[goodsId] == undefined) {
       goods[goodsId] = 1;
       goods.money = cache.price;
-    }else{
-      console.log("dddddddddddddddd");
-      goods[goodsId] +=1;
+    } else {
+      goods[goodsId] += 1;
       goods.money += cache.price
     }
     ++chooseGoods.allCount;
-    chooseGoods.money += cache.price; 
+    chooseGoods.money += cache.price;
     console.log(chooseGoods)
     this.setData({
       chooseGoods: chooseGoods,
@@ -380,20 +351,20 @@ Page({
     var name = e.currentTarget.dataset.name;
     var findex = e.currentTarget.dataset.findex;
     var chooseIndex = this.data.sizeIndex;
-    chooseIndex[findex]=name;
+    chooseIndex[findex] = name;
     this.setData({
       sizeIndex: chooseIndex
     });
-    var typeMsg="";
-    var arr =Object.keys(chooseIndex)
+    var typeMsg = "";
+    var arr = Object.keys(chooseIndex)
     for (var j = 0, len = arr.length; j < len; j++) {
       console.log(j)
-      if(j==len-1){
+      if (j == len - 1) {
         typeMsg += chooseIndex[arr[j]];
-      }else{
+      } else {
         typeMsg += chooseIndex[arr[j]] + "-";
       }
-     
+
     }
     console.log(typeMsg)
     wx.setStorageSync('typeMsg', typeMsg)
@@ -416,7 +387,7 @@ Page({
   onLoad: function onLoad() {
     // TODO: onLoad
     // 改变标题栏文字
-    var _this=this;
+    var _this = this;
     console.log("-----------onLoad run");
     wx.request({
       url: api.dishList,

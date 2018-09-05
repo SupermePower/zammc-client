@@ -28,6 +28,7 @@ App({
    * @return {Promise} 包含获取用户信息的`Promise`
    */
   getUserInfo: function getUserInfo() {
+
     var _this = this;
     return new Promise(function (resolve, reject) {
       if (_this.data.userInfo) return reject(_this.data.userInfo);
@@ -46,7 +47,7 @@ App({
   },
 
   globalData: {
-    appid: 'wxee3f46cc7f8ca2dd', 
+    appid: 'wxfc61b3daa2d95647', 
     secret: '272d9cd622b6d914ca3773fbaecc6502'
   },
 
@@ -55,7 +56,7 @@ App({
    * 当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
    */
   onLaunch: function onLaunch() {
-    console.log(' ========== Application is launched ========== ');
+    // console.log(' ========== Application is launched ========== ');
     var that = this
     var user = wx.getStorageSync('user') || {};
     var userInfo = wx.getStorageSync('userInfo') || {};
@@ -68,7 +69,8 @@ App({
                 var objz = {};
                 objz.avatarUrl = res.userInfo.avatarUrl;
                 objz.nickName = res.userInfo.nickName;
-                //console.log(objz);
+                
+                console.log("加载小程序-------------->"+objz);
                 wx.setStorageSync('userInfo', objz);//存储userInfo
               }
             });

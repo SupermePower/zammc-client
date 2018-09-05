@@ -9,7 +9,7 @@ Page({
         image: 'https://order-foods-img-1256105536.cos.ap-chengdu.myqcloud.com/加盟广告图.png',
         displaySequence: 0,
         startDate: '2018-03-20',
-        endDate: '2018-06-20'
+        endDate: '2918-06-20'
       }
     ],
     currentTab: 0

@@ -11,8 +11,9 @@ Page({
   data: {
     title: 'payorder',
     payWay: "",
+    orderId:"",
     order: {
-      restaurant: '最爱妈妈菜',
+      restaurant: '北海渔村',
       count: 5,
       number: '20170326122',
       goods: [],
@@ -38,18 +39,44 @@ Page({
    */
   payMoneyWX: function payMoneyWX() {
     console.log("微信支付");
+    var payOrderData = {
+      orderId:this.orderId,
+      payWay:this.payWay
+    };
     // todo 付款流程
-    // wx.requestPayment({
-    //   'timeStamp': '',
-    //   'nonceStr': '',
-    //   'package': '',
-    //   'signType': 'MD5',
-    //   'paySign': '',
-    //   'success':function(res){
-    //   },
-    //   'fail':function(res){
-    //   }
-    // })
+    wx.request({
+      url: 'https://www.sxbhyc.com/order-foods/order/payOrder',
+      header: {
+        "Content-Type": "application/json"
+      },
+      method: 'PUT',
+      data: payOrderData,
+      success: function (res) {
+        if (res.data.dealCode == 200) {
+          wx.requestPayment(
+            {
+              'timeStamp': res.data.dealResult.timeStamp,
+              'nonceStr': res.data.dealResult.nonceStr,
+              'package': res.data.dealResult.package,
+              'signType': 'MD5',
+              'paySign': res.data.dealResult.paySign,
+              'success': function (res) {
+                console.log(res)
+              },
+              'fail': function (res) { },
+              'complete': function (res) { }
+            })
+        }
+        console.log(res.data.dealResult);
+      },
+      fail: function () {
+        wx.showToast({
+          title: '失败',
+          icon: 'fail',
+          duration: 1000
+        });
+      }
+    })
   },
   /**
   * 现金支付
@@ -75,9 +102,9 @@ Page({
     var payWay = this.payWay;
     console.log("您选择的支付方式->" + payWay)
     if (payWay == 0) {
-      console.log("微信支付");
+      this.payMoneyWX();
     } else if (payWay == 1) {
-      console.log("现金支付");
+      this.payMoneyRMB();
     } else {
       return wx.showToast({
         title: '请选择支付方式',
@@ -108,6 +135,7 @@ Page({
     // TODO: onLoad
     var that = this;
     this.payWay = '0';
+    this.orderId = data.orderId;
     console.log("orderId--------", data.orderId);
     console.log("payWay", that.payWay);
   },

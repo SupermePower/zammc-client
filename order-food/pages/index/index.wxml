@@ -27,13 +27,5 @@
       </block>
     </view>
   </view>
-  <!-- <view class="containermmm">  
-    <view class="saoma" bindtap="click">点我扫一扫</view>  
-    <view class="show">{{show}}</view>  
-  </view>   -->
-
-  <!-- <view class='div shareBtn' open-type="share" > 
- <image src='../../images/share.png'></image>
- </view> -->
    <button open-type="share" class='shareBtn' style='background:url(../../images/share.png) no-repeat center;background-size: cover;'></button>
 </view>

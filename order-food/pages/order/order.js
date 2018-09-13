@@ -32,8 +32,9 @@ Page({
    * @param e
    */
   goPay: function goPay(e) {
+    console.log("去支付订单", e.currentTarget.dataset);
     wx.navigateTo({
-      url: '../payorder/payorder?id=' + e.currentTarget.dataset.id
+      url: '../payorder/payorder?orderId=' + e.currentTarget.dataset.id
     });
   },
 
@@ -68,7 +69,7 @@ Page({
     var userId = userInfo.openid;
     console.log("用户订单---------------用户主键"+userId);
     wx.request({
-      url: 'https://www.sxmbyd.com/order-foods/order/queryUserOrder',
+      url: 'https://www.sxbhyc.com/order-foods/order/queryUserOrder',
       url: api.queryUserOrder,
       method: 'POST',
       data : {

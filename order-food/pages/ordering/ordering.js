@@ -72,10 +72,11 @@ Page({
       method: 'POST',
       header: { 'Content-Type': 'application/json' },
       data: {          //参数为json格式数据
-        userId: '1',
+        userId: userId,
         goodMsg: msgArrys,
         allCount: chooseGoods.allCount,
-        allMoney: chooseGoods.money
+        allMoney: chooseGoods.money,
+        tableNumber: 10
       },
       success: function (res) {
         if (res.data.dealCode == 200) {

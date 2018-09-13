@@ -28,7 +28,6 @@ App({
    * @return {Promise} 包含获取用户信息的`Promise`
    */
   getUserInfo: function getUserInfo() {
-
     var _this = this;
     return new Promise(function (resolve, reject) {
       if (_this.data.userInfo) return reject(_this.data.userInfo);
@@ -47,8 +46,8 @@ App({
   },
 
   globalData: {
-    appid: 'wxfc61b3daa2d95647', 
-    secret: '272d9cd622b6d914ca3773fbaecc6502'
+    appid: 'wxfc61b3daa2d95647',
+    secret: 'b89e881163d43de3e7c5868dbb496d62'
   },
 
   /**
@@ -56,46 +55,44 @@ App({
    * 当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
    */
   onLaunch: function onLaunch() {
-    // console.log(' ========== Application is launched ========== ');
+    console.log(' ========== Application is launched ========== ');
     var that = this
     var user = wx.getStorageSync('user') || {};
     var userInfo = wx.getStorageSync('userInfo') || {};
     if ((!user.openid || (user.expires_in || Date.now()) < (Date.now() + 600)) && (!userInfo.nickName)) {
       wx.login({
         success: function (res) {
-          if (res.code) {
-            wx.getUserInfo({
-              success: function (res) {
-                var objz = {};
-                objz.avatarUrl = res.userInfo.avatarUrl;
-                objz.nickName = res.userInfo.nickName;
-                
-                console.log("加载小程序-------------->"+objz);
-                wx.setStorageSync('userInfo', objz);//存储userInfo
-              }
-            });
-            var d = that.globalData;//这里存储了appid、secret、token串  
-            var l = 'https://api.weixin.qq.com/sns/jscode2session?appid=' + d.appid + '&secret=' + d.secret + '&js_code=' + res.code + '&grant_type=authorization_code';
-            wx.request({
-              url: l,
-              data: {},
-              method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT  
-              // header: {}, // 设置请求的 header  
-              success: function (res) {
-                var obj = {};
-                obj.openid = res.data.openid;
-                console.log("获取的openid----->", obj.openid);
-                obj.expires_in = Date.now() + res.data.expires_in;
-                //console.log(obj);
-                wx.setStorageSync('user', obj);//存储openid  
-              }
-            });
-          } else {
-            console.log('获取用户登录态失败！' + res.errMsg)
-          }
+          wx.getUserInfo({
+            withCredentials: true,
+            success: function (res) {
+              console.log("userInfo------->", res.userInfo);
+              var objz = {};
+              objz.avatarUrl = res.userInfo.avatarUrl;
+              objz.nickName = res.userInfo.nickName;
+              console.log("加载小程序-------------->", objz);
+              wx.setStorageSync('userInfo', objz);//存储userInfo
+            },
+            error: function() {
+              console.log("获取用户信息失败");
+            }
+          });
+          console.log("调用获取用户信息结束");
+          var d = that.globalData;//这里存储了appid、secret、token串
+          var l = 'https://www.sxbhyc.com/order-foods/login/login/' + res.code;
+          wx.request({
+            url: l,
+            dataType: 'json',
+            method:'GET',
+            success: function (data) {
+              var obj = {};
+              obj.openid = data.data.dealResult.openid;
+              console.log("获取的openid----->", data.data.dealResult.openid);
+              wx.setStorageSync('user', obj);//存储openid  
+            }
+          });
         }
       });
-    } 
+    }
   },
 
   /**

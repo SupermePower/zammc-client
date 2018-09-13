@@ -21,7 +21,7 @@ Page({
   onLoad: function onLoad() {
     var that = this;
     wx.request({
-      url: 'https://www.sxmbyd.com/order-foods/restaurant/queryRestaurant',
+      url: 'https://www.sxbhyc.com/order-foods/restaurant/queryRestaurant',
       // url:api.queryHomePage,
       header: {
         "Content-Type": "application/json"

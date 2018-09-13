@@ -69,7 +69,7 @@ Page({
       }
     }
     wx.request({
-      url: 'http://localhost:8080/order-foods/recharge/recharge',
+      url: 'https://www.sxbhyc.com/order-foods/recharge/recharge',
         header: {
           "Content-Type": "application/json"
         },
@@ -106,7 +106,7 @@ Page({
   onLoad: function () {
     var that = this;
     wx.request({
-      url: 'https://www.sxmbyd.com/order-foods/recharge/queryRechargePackage',
+      url: 'https://www.sxbhyc.com/order-foods/recharge/queryRechargePackage',
       header: {
         "Content-Type": "application/json"
       },

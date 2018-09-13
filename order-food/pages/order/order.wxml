@@ -18,8 +18,9 @@
           </view>
         </view>
         <view class="go-pay-bottom">
+          <text>订单号:{{ item.orderId }}</text>
           <text>￥{{ item.actMoney }}</text>
-          <view class="go-pay-btn" bindtap="goPay" data-id="{{ item.code }}">去支付</view>
+          <view class="go-pay-btn" bindtap="goPay" id='{{ item.orderId }}' data-id="{{ item.code }}">去支付</view>
         </view>
       </view>
     </view>
